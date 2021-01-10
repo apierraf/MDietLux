@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MDietLux</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="weight_text">Peso</string>
+    <string name="age_text">Edad</string>
+    <string name="height_text">Altura</string>
 </resources>
