@@ -65,4 +65,7 @@ dependencies {
     // Circle ProgreesBar Lib
     implementation 'com.github.marcinmoskala:ArcSeekBar:0.31'
 
+    // Pie Chart Lib
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 }

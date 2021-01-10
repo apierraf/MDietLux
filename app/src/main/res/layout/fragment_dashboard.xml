@@ -158,7 +158,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:background="@drawable/ic_gradient_age">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -167,13 +168,14 @@
                             android:layout_marginTop="15dp"
                             android:text="@string/age_metabolism"
                             android:textSize="15sp"
+                            android:textColor="@android:color/white"
                             android:textStyle="bold" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
+                            android:layout_height="0.5dp"
                             android:layout_margin="10dp"
-                            android:background="@android:color/darker_gray" />
+                            android:background="@android:color/white" />
 
                         <TextView
                             android:id="@+id/ageMetabolism"
@@ -183,6 +185,7 @@
                             android:layout_marginTop="15dp"
                             android:gravity="center"
                             android:padding="10dp"
+                            android:textColor="@android:color/white"
                             android:text="-"
                             android:textSize="30sp" />
 
@@ -200,7 +203,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:background="@drawable/ic__gradient_first_week">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -208,14 +212,15 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="15dp"
                             android:text="@string/first_week"
+                            android:textColor="@android:color/white"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
+                            android:layout_height="0.5dp"
                             android:layout_margin="10dp"
-                            android:background="@android:color/darker_gray" />
+                            android:background="@android:color/white" />
 
                         <TextView
                             android:id="@+id/firstWeek"
@@ -225,6 +230,7 @@
                             android:layout_marginTop="15dp"
                             android:gravity="center"
                             android:padding="10dp"
+                            android:textColor="@android:color/white"
                             android:text="-"
                             android:textSize="30sp" />
 
@@ -243,7 +249,7 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="340dp"
-                    android:layout_height="150dp"
+                    android:layout_height="280dp"
                     android:layout_margin="10dp"
                     app:cardCornerRadius="4dp"
                     app:cardElevation="3dp">
@@ -267,13 +273,10 @@
                             android:layout_margin="10dp"
                             android:background="@android:color/darker_gray" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:text="Aqui va una grafica"
-                            android:textColor="@android:color/darker_gray" />
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/chart1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -297,7 +300,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:background="@drawable/ic_gradient_efective">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -305,13 +309,14 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="10dp"
                             android:text="@string/efective_text"
+                            android:textColor="@android:color/white"
                             android:textStyle="bold" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
+                            android:layout_height="0.5dp"
                             android:layout_margin="10dp"
-                            android:background="@android:color/darker_gray" />
+                            android:background="@android:color/white" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -326,6 +331,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="15dp"
                                 android:gravity="center"
+                                android:textColor="@android:color/white"
                                 android:text="-"
                                 android:textSize="30sp" />
 
@@ -336,7 +342,7 @@
                                 android:gravity="center"
                                 android:padding="5dp"
                                 android:text="@string/percent_explain"
-                                android:textColor="@android:color/darker_gray" />
+                                android:textColor="@android:color/white" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -361,7 +367,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:background="@drawable/ic_gradient_calories">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -369,14 +376,15 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="15dp"
                             android:text="@string/calories_text"
+                            android:textColor="@android:color/white"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
+                            android:layout_height="0.5dp"
                             android:layout_margin="10dp"
-                            android:background="@android:color/darker_gray" />
+                            android:background="@android:color/white" />
 
                         <TextView
                             android:id="@+id/calories"
@@ -386,6 +394,7 @@
                             android:layout_marginTop="15dp"
                             android:gravity="center"
                             android:padding="10dp"
+                            android:textColor="@android:color/white"
                             android:text="-"
                             android:textSize="30sp" />
 
@@ -403,7 +412,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:background="@drawable/ic_gradient_water">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -411,14 +421,15 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="15dp"
                             android:text="@string/whater_text"
+                            android:textColor="@android:color/white"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
+                            android:layout_height="0.5dp"
                             android:layout_margin="10dp"
-                            android:background="@android:color/darker_gray" />
+                            android:background="@android:color/white" />
 
                         <TextView
                             android:id="@+id/wather"
@@ -428,6 +439,7 @@
                             android:layout_marginTop="15dp"
                             android:gravity="center"
                             android:padding="10dp"
+                            android:textColor="@android:color/white"
                             android:text="-"
                             android:textSize="30sp" />
 
@@ -484,10 +496,10 @@
                                 android:layout_marginRight="15dp"
                                 app:enabled="false"
                                 app:maxProgress="40"
-                                app:progressBackgroundColor="@color/teal_700"
+                                app:progressBackgroundColor="@android:color/darker_gray"
                                 app:progressBackgroundWidth="15dp"
                                 app:progressColor="@color/teal_200"
-                                app:progressWidth="6dp"
+                                app:progressWidth="10dp"
                                 app:roundEdges="true" />
 
                             <TextView
