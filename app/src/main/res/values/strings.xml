@@ -10,4 +10,8 @@
     <string name="weight_obtain">Tendrás un peso</string>
     <string name="calories_text">Calorías diarias</string>
     <string name="whater_text">Agua recomendada</string>
+    <string name="imc">IMC</string>
+    <string name="loading_data">Cargando Datos</string>
+    <string name="efective_text">Efectividad</string>
+    <string name="percent_explain">De personas similares perdieron más de 10kg con nuestro plan de pérdida de peso</string>
 </resources>
