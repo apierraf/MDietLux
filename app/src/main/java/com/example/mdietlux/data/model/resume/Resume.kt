@@ -1,4 +1,4 @@
-package com.example.mdietlux.data.model
+package com.example.mdietlux.data.model.resume
 
 
 import com.squareup.moshi.Json
@@ -6,64 +6,64 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Resume(
-    @Json(name = "body_types")
+        @Json(name = "body_types")
     val bodyTypes: List<String>?,
-    @Json(name = "caloriesForWeightLoss")
+        @Json(name = "caloriesForWeightLoss")
     val caloriesForWeightLoss: CaloriesForWeightLoss?,
-    @Json(name = "caloriesToMaintain")
+        @Json(name = "caloriesToMaintain")
     val caloriesToMaintain: Double?,
-    @Json(name = "caloriesToMaintainWeight")
+        @Json(name = "caloriesToMaintainWeight")
     val caloriesToMaintainWeight: CaloriesToMaintainWeight?,
-    @Json(name = "corporalChange")
+        @Json(name = "corporalChange")
     val corporalChange: Int?,
-    @Json(name = "country")
+        @Json(name = "country")
     val country: List<String>?,
-    @Json(name = "current_weight")
+        @Json(name = "current_weight")
     val currentWeight: String?,
-    @Json(name = "energies")
+        @Json(name = "energies")
     val energies: List<String>?,
-    @Json(name = "excercises")
+        @Json(name = "excercises")
     val excercises: List<String>?,
-    @Json(name = "habits")
+        @Json(name = "habits")
     val habits: List<String>?,
-    @Json(name = "high")
+        @Json(name = "high")
     val high: String?,
-    @Json(name = "imc")
+        @Json(name = "imc")
     val imc: Double?,
-    @Json(name = "imcState")
+        @Json(name = "imcState")
     val imcState: String?,
-    @Json(name = "metabolicAge")
+        @Json(name = "metabolicAge")
     val metabolicAge: Int?,
-    @Json(name = "objectives")
+        @Json(name = "objectives")
     val objectives: List<String>?,
-    @Json(name = "percentageOfEffectiveness")
+        @Json(name = "percentageOfEffectiveness")
     val percentageOfEffectiveness: Int?,
-    @Json(name = "restriction_types")
+        @Json(name = "restriction_types")
     val restrictionTypes: List<String>?,
-    @Json(name = "session_id")
+        @Json(name = "session_id")
     val sessionId: String?,
-    @Json(name = "sex")
+        @Json(name = "sex")
     val sex: String?,
-    @Json(name = "sleeping")
+        @Json(name = "sleeping")
     val sleeping: List<String>?,
-    @Json(name = "_token")
+        @Json(name = "_token")
     val token: String?,
-    @Json(name = "typical_days")
+        @Json(name = "typical_days")
     val typicalDays: List<String>?,
-    @Json(name = "waterLitres")
+        @Json(name = "waterLitres")
     val waterLitres: Double?,
-    @Json(name = "waters")
+        @Json(name = "waters")
     val waters: List<String>?,
-    @Json(name = "weight")
+        @Json(name = "weight")
     val weight: String?,
-    @Json(name = "weightLossFirstMonth")
+        @Json(name = "weightLossFirstMonth")
     val weightLossFirstMonth: WeightLossFirstMonth?,
-    @Json(name = "weightLossFirstWeek")
+        @Json(name = "weightLossFirstWeek")
     val weightLossFirstWeek: Double?,
-    @Json(name = "weightLossSecondMonth")
+        @Json(name = "weightLossSecondMonth")
     val weightLossSecondMonth: WeightLossSecondMonth?,
-    @Json(name = "weightLossStartMonth")
+        @Json(name = "weightLossStartMonth")
     val weightLossStartMonth: WeightLossStartMonth?,
-    @Json(name = "years")
+        @Json(name = "years")
     val years: String?
 )

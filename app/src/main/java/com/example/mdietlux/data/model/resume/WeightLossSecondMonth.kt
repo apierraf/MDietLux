@@ -1,4 +1,4 @@
-package com.example.mdietlux.data.model
+package com.example.mdietlux.data.model.resume
 
 
 import com.squareup.moshi.Json
