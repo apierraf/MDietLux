@@ -1,4 +1,4 @@
-package com.example.mdietlux.ui
+package com.example.mdietlux.ui.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

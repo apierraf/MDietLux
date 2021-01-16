@@ -1,28 +1,24 @@
-package com.example.mdietlux.ui
+package com.example.mdietlux.ui.dasboard
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.graphics.Color
-import android.graphics.DashPathEffect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.mdietlux.R
 import com.example.mdietlux.data.network.WebAccess
 import com.example.mdietlux.utils.CustomMarker
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.components.LimitLine
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import com.github.mikephil.charting.utils.Utils
 import com.marcinmoskala.arcseekbar.ArcSeekBar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -37,7 +33,7 @@ class DashboardFragment : Fragment() {
     lateinit var weightTextView: TextView
     lateinit var ageMetaTextView: TextView
     lateinit var firstWeekTextView: TextView
-    lateinit var watherTextView: TextView
+    lateinit var waterTextView: TextView
     lateinit var arcSeekBar: ArcSeekBar
     lateinit var imcDataTextView: TextView
     lateinit var imcNotification: TextView
@@ -45,6 +41,7 @@ class DashboardFragment : Fragment() {
     lateinit var percentPerson: TextView
     lateinit var mChart: LineChart
     lateinit var progressDialog: AlertDialog
+    lateinit var viewModel: DasboardViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,13 +54,16 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel = ViewModelProvider(this)
+            .get(DasboardViewModel::class.java)
+
         sessionTextView = view.findViewById(R.id.txtSession)
         heigtTextView = view.findViewById(R.id.heightData)
         ageTextView = view.findViewById(R.id.ageData)
         weightTextView = view.findViewById(R.id.weightData)
         ageMetaTextView = view.findViewById(R.id.ageMetabolism)
         firstWeekTextView = view.findViewById(R.id.firstWeek)
-        watherTextView = view.findViewById(R.id.wather)
+        waterTextView = view.findViewById(R.id.wather)
         imcDataTextView = view.findViewById(R.id.imcData)
         arcSeekBar = view.findViewById(R.id.seekArc)
         arcSeekBar.setProgressGradient(Color.GREEN, Color.YELLOW, Color.RED)
@@ -72,54 +72,65 @@ class DashboardFragment : Fragment() {
         percentPerson = view.findViewById(R.id.personPercent)
 
         progressDialog = ProgressDialog(view.context)
+        progressDialog.show()
 
         mChart = view.findViewById(R.id.chart1)
 
-        loadResume()
+        viewModel.loadResume()
+
+        progressDialog.show()
+        progressDialog.setMessage("Cargando")
+
+        viewModel.seccion.observe(viewLifecycleOwner, {
+            if (it != null){
+                progressDialog.hide()
+            }
+            sessionTextView.text = it
+        })
+
+        viewModel.heigth.observe(viewLifecycleOwner, {
+            heigtTextView.text = it
+        })
+
+        viewModel.age.observe(viewLifecycleOwner, {
+            ageTextView.text = it
+        })
+
+        viewModel.weigth.observe(viewLifecycleOwner, {
+            weightTextView.text = it
+        })
+
+        viewModel.ageMeta.observe(viewLifecycleOwner, {
+            ageMetaTextView.text = it
+        })
+
+        viewModel.firstWeek.observe(viewLifecycleOwner, {
+            firstWeekTextView.text = it
+        })
+
+        viewModel.water.observe(viewLifecycleOwner, {
+            waterTextView.text = it
+        })
+
+        viewModel.imcData.observe(viewLifecycleOwner, {
+            imcDataTextView.text = it
+            arcSeekBar.progress = it.toDouble().toInt()
+        })
+
+        viewModel.percentPerson.observe(viewLifecycleOwner, {
+            percentPerson.text = it
+        })
+
+        viewModel.sex.observe(viewLifecycleOwner,{
+            if(it == "male"){
+                sexImageView.setImageResource(R.drawable.ic_male
+                )
+            }else{
+                sexImageView.setImageResource(R.drawable.ic_female)
+            }
+        })
 
         setData()
-    }
-
-    fun loadResume() {
-        // Launch Kotlin Coroutine on Android's main thread
-
-        progressDialog.setMessage(getString(R.string.loading_data))
-        progressDialog.show()
-
-        GlobalScope.launch(Dispatchers.Main) {
-
-            // Execute web request through coroutine call adapter & retrofit
-            val webResponse = WebAccess.partsApi.getResume("prueba@gmail.com").await()
-
-            if (webResponse.sex != null) {
-
-                progressDialog.hide()
-
-                if (webResponse.sex == "male") {
-                    sexImageView.setImageResource(R.drawable.ic_male)
-                } else {
-                    sexImageView.setImageResource(R.drawable.ic_female)
-                }
-                sessionTextView.text = webResponse.sessionId
-                (webResponse.high + " cm").also { heigtTextView.text = it }
-                ageTextView.text = webResponse.years
-                (webResponse.currentWeight + " kg").also { weightTextView.text = it }
-                ageMetaTextView.text = webResponse.metabolicAge.toString()
-                (String.format(
-                    "%.1f",
-                    webResponse.weightLossFirstWeek
-                ) + " kg").also { firstWeekTextView.text = it }
-                (String.format("%.1f", webResponse.waterLitres) + " L").also {
-                    watherTextView.text = it
-                }
-                imcDataTextView.text = webResponse.imc.toString()
-                arcSeekBar.progress = webResponse.imc!!.toDouble().toInt()
-                imcNotification.text = webResponse.imcState
-                (webResponse.percentageOfEffectiveness.toString() + "%").also {
-                    percentPerson.text = it
-                }
-            }
-        }
     }
 
 
@@ -139,15 +150,15 @@ class DashboardFragment : Fragment() {
         vl.setDrawValues(false)
         vl.setDrawFilled(true)
         vl.lineWidth = 3f
-        vl.fillColor = R.color.purple_700
-        vl.fillAlpha = R.color.purple_200
+        vl.fillColor = R.color.teal_700
+        vl.fillAlpha = R.color.teal_200
         //Part5
         mChart.xAxis.labelRotationAngle = 0f
         //Part6
         mChart.data = LineData(vl)
         //Part7
         mChart.axisRight.isEnabled = false
-        mChart.xAxis.axisMaximum = 3+0.1f
+        mChart.xAxis.axisMaximum = 3 + 0.1f
         //Part8
         mChart.setTouchEnabled(true)
         mChart.setPinchZoom(true)

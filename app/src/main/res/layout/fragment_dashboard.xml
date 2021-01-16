@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DashboardFragment">
+    tools:context=".ui.dasboard.DashboardFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -496,7 +496,7 @@
                                 android:layout_marginRight="15dp"
                                 app:enabled="false"
                                 app:maxProgress="40"
-                                app:progressBackgroundColor="@android:color/darker_gray"
+                                app:progressBackgroundColor="@android:color/black"
                                 app:progressBackgroundWidth="15dp"
                                 app:progressColor="@color/teal_200"
                                 app:progressWidth="10dp"
