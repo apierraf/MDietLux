@@ -72,4 +72,7 @@ dependencies {
     // Pie Chart Lib
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
+    //OnBoarding Lib
+    implementation 'com.github.AppIntro:AppIntro:6.0.0'
+
 }

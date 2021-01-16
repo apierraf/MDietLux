@@ -14,5 +14,10 @@
     <string name="loading_data">Cargando Datos</string>
     <string name="efective_text">Efectividad</string>
     <string name="percent_explain">De personas similares perdieron más de 10kg con nuestro plan de pérdida de peso</string>
+    <string name="password">Contraseña</string>
+    <string name="user">Usuario</string>
+    <string name="login_text_info">¡COMER SANO nunca antes SUPO TAN BIEN!</string>
+    <string name="no_register">¿No tienes una cuenta? <b>Entrar</b></string>
+    <string name="forgot_pass">¿Olvido su contraseña?</string>
 
 </resources>
