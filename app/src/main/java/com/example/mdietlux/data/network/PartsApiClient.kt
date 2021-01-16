@@ -1,5 +1,6 @@
 package com.example.mdietlux.data.network
 
+import com.example.mdietlux.data.model.countries.Countries
 import com.example.mdietlux.data.model.resume.Resume
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
@@ -11,4 +12,7 @@ interface PartsApiClient {
     @GET("resume/{email}")
     fun getResume(@Path("email") email: String):
             Deferred<Resume>
+
+    @GET("countries")
+    fun getCountries(): Deferred<Countries>
 }

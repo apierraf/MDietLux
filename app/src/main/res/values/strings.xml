@@ -19,5 +19,9 @@
     <string name="login_text_info">¡COMER SANO nunca antes SUPO TAN BIEN!</string>
     <string name="no_register">¿No tienes una cuenta? <b>Entrar</b></string>
     <string name="forgot_pass">¿Olvido su contraseña?</string>
+    <string name="register">Registrarse</string>
+    <string name="gender_select">Por favor, seleccione tu género:</string>
+    <string name="select_country">Seleccione su país</string>
+    <string name="info_countries">Esta aplicación puede usarse en cualquier país. Seleccionar tu país permite personalizar mucho más tu dieta y tu lista de compra</string>
 
 </resources>
