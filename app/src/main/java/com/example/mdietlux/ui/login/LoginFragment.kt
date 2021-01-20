@@ -17,8 +17,8 @@ class LoginFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
@@ -29,13 +29,9 @@ class LoginFragment : Fragment() {
 
         fbLogin = view.findViewById(R.id.button)
         fbLogin.setOnClickListener {
-            view.findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
+
         }
 
-        registerTextView = view.findViewById(R.id.textView4)
-        registerTextView.setOnClickListener {
-            view.findNavController().navigate(R.id.action_loginFragment_to_onBoardingApp)
-        }
     }
 
 }

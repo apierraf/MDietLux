@@ -20,8 +20,15 @@
     <string name="no_register">¿No tienes una cuenta? <b>Entrar</b></string>
     <string name="forgot_pass">¿Olvido su contraseña?</string>
     <string name="register">Registrarse</string>
-    <string name="gender_select">Por favor, seleccione tu género:</string>
+    <string name="gender_select">Por favor, seleccione su género:</string>
     <string name="select_country">Seleccione su país</string>
     <string name="info_countries">Esta aplicación puede usarse en cualquier país. Seleccionar tu país permite personalizar mucho más tu dieta y tu lista de compra</string>
+    <string name="objetive_text">¿Cuál es tu objetivo?</string>
+    <string name="start">Empezar</string>
+    <string name="welcome">Inicio</string>
+    <string name="login">Ingresar</string>
+    <string name="measure">Medidas</string>
+    <string name="peso_deseado">Peso deseado</string>
+    <string name="agetitle">Entre la edad:</string>
 
 </resources>

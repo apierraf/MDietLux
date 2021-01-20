@@ -1,6 +1,7 @@
 package com.example.mdietlux.data.network
 
 import com.example.mdietlux.data.model.countries.Countries
+import com.example.mdietlux.data.model.objetives.ObjetivesModel
 import com.example.mdietlux.data.model.resume.Resume
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
@@ -15,4 +16,7 @@ interface PartsApiClient {
 
     @GET("countries")
     fun getCountries(): Deferred<Countries>
+
+    @GET("objectives")
+    fun getObjetives(): Deferred<ObjetivesModel>
 }

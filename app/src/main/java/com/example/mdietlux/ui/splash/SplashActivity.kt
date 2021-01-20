@@ -26,16 +26,17 @@ class SplashActivity : AppCompatActivity() {
 
     private fun setSplashy() {
         Splashy(this)
-            .setLogo(R.drawable.ic_launcher_foreground)
+            .setLogo(R.drawable.ic_healthy_food)
             .setAnimation(Splashy.Animation.SLIDE_IN_TOP_BOTTOM,2000)
-            .setBackgroundResource(R.color.white)
             .setTitleColor(R.color.black)
-            .setLogoWHinDp(400, 400)
+            .setFullScreen(yes = true)
+            .setBackgroundResource(R.color.white)
+            .setLogoWHinDp(250, 250)
             .setProgressColor(R.color.green_500)
             .setTitle(R.string.app_name)
             .setSubTitle(R.string.login_text_info)
             .setClickToHide(true)
-            .setFullScreen(true)
+            .setBackgroundColor(R.color.black)
             .setDuration(3000)
             .show()
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/welcomeFragment">
 
     <fragment
         android:id="@+id/dashboardFragment"
@@ -13,18 +13,23 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.mdietlux.ui.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_onBoardingApp"
-            app:destination="@id/onBoardingApp" />
-        <action
-            android:id="@+id/action_loginFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
-    </fragment>
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" />
     <activity
         android:id="@+id/onBoardingApp"
         android:name="com.example.mdietlux.ui.onboarding.OnBoardingApp"
         android:label="OnBoardingApp" />
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.mdietlux.ui.welcome.WelcomeFragment"
+        android:label="@string/welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_onBoardingApp"
+            app:destination="@id/onBoardingApp" />
+    </fragment>
 
 </navigation>

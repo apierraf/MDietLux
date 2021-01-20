@@ -43,14 +43,14 @@ class GenderFragment : Fragment(), SlidePolicy {
             gender = "Male"
             Toast.makeText(view.context, gender, Toast.LENGTH_LONG).show()
             imageViewMale.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.green_500)))
-            imageViewFemale.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT))
+            imageViewFemale.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.five)))
         }
 
         imageViewFemale.setOnClickListener {
             gender = "Female"
             Toast.makeText(view.context, gender, Toast.LENGTH_LONG).show()
             imageViewFemale.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.green_500)))
-            imageViewMale.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT))
+            imageViewMale.setBackgroundTintList(ColorStateList.valueOf(resources.getColor(R.color.five)))
         }
 
     }

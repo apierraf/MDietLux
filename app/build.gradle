@@ -81,4 +81,17 @@ dependencies {
 
     //Splash
     implementation 'com.rbddevs.splashy:splashy:1.3.0'
+
+    //Layout Lib
+    implementation 'com.github.florent37:diagonallayout:1.0.9'
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+
+    //Rv Selection
+    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0-rc03'
+
+    //Material Dialog
+    implementation 'com.afollestad.material-dialogs:core:3.3.0'
+
+    //NumberPicker
+    implementation 'com.shawnlin:number-picker:2.4.12'
 }

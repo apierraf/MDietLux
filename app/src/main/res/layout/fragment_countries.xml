@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context=".ui.register.countries.CountriesFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="@font/source_sans_pro"
         android:gravity="center"
+        android:textColor="@color/white"
         android:text="@string/select_country"
         android:textSize="30sp" />
 
@@ -32,6 +33,7 @@
         android:fontFamily="@font/source_sans_pro"
         android:gravity="center"
         android:textSize="17sp"
+        android:textColor="@color/white"
         android:layout_marginEnd="15dp"
         android:layout_marginStart="15dp"
         android:text="@string/info_countries"/>
