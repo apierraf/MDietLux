@@ -30,5 +30,12 @@
     <string name="measure">Medidas</string>
     <string name="peso_deseado">Peso deseado</string>
     <string name="agetitle">Entre la edad:</string>
+    <string name="height_title">Entre la altura:</string>
+    <string name="height_info_text_dialog">La altura es expresada en (cm)</string>
+    <string name="weight_info_text_dialog">El peso se expresa en (kg)</string>
+    <string name="weight_title">Entre el peso:</string>
+    <string name="weight_OBJtitle">Ingrese el peso deseado:</string>
+    <string name="metric_measure">Metrica</string>
+    <string name="imperial_measure">Imperial</string>
 
 </resources>

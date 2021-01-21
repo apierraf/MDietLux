@@ -18,6 +18,34 @@
         android:textColor="@color/white"
         android:textSize="30sp" />
 
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:singleSelection="true"
+        android:layout_marginTop="10dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button1"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cornerRadius="10dp"
+            android:fontFamily="@font/source_sans_pro"
+            android:text="@string/metric_measure" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button2"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cornerRadius="10dp"
+            android:fontFamily="@font/source_sans_pro"
+            android:text="@string/imperial_measure" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ageTIL"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -27,7 +55,6 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
         android:hint="@string/age_text"
-        android:focusable="false"
         app:hintTextAppearance="@style/TextInputLayoutHintStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +64,10 @@
             android:id="@+id/inputAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:cursorVisible="false"
+            android:focusable="false"
             android:inputType="none"
-            android:cursorVisible="false" />
+            android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -60,6 +88,9 @@
             android:id="@+id/inputHeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:inputType="none"
             android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,9 +109,11 @@
         app:layout_constraintTop_toBottomOf="@+id/diagonalLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/weightHeight"
+            android:id="@+id/inputWeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusable="false"
+            android:inputType="none"
             android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,9 +132,11 @@
         app:layout_constraintTop_toBottomOf="@+id/diagonalLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/weighOBJtHeight"
+            android:id="@+id/inputOBJtHeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusable="false"
+            android:inputType="none"
             android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
