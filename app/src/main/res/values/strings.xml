@@ -42,5 +42,10 @@
     <string name="body_types_text">Selecciona el tipo de cuerpo que te describe mejor</string>
     <string name="body_type_info">Cada tipo de cuerpo tiene una estructura metabólica específica.</string>
     <string name="typical_day_text">Describe tu día típico</string>
+    <string name="text_habit">Hábitos negativos</string>
+    <string name="exercicies_text">Actividad física</string>
+    <string name="energies_text">Nivel de energía diaria</string>
+    <string name="text_sleeping">Promedio horas de sueños</string>
+    <string name="waters_text">Consumo diario de agua</string>
 
 </resources>

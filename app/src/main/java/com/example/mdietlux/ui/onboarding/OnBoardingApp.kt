@@ -7,9 +7,14 @@ import com.example.mdietlux.R
 import com.example.mdietlux.ui.register.body.BodyFragment
 import com.example.mdietlux.ui.register.countries.CountriesFragment
 import com.example.mdietlux.ui.register.day.TypicalDaysFragment
+import com.example.mdietlux.ui.register.energies.EnergiesFragment
+import com.example.mdietlux.ui.register.exercices.ExercicesFragment
 import com.example.mdietlux.ui.register.gender.GenderFragment
+import com.example.mdietlux.ui.register.habits.HabitsFragment
 import com.example.mdietlux.ui.register.measure.MeasureFragment
 import com.example.mdietlux.ui.register.objetives.ObjetivesFragment
+import com.example.mdietlux.ui.register.sleeping.SleepingFragment
+import com.example.mdietlux.ui.register.waters.WatersFragment
 import com.github.appintro.AppIntro2
 
 class OnBoardingApp : AppIntro2() {
@@ -26,6 +31,11 @@ class OnBoardingApp : AppIntro2() {
         addSlide(MeasureFragment())
         addSlide(BodyFragment())
         addSlide(TypicalDaysFragment())
+        addSlide(HabitsFragment())
+        addSlide(ExercicesFragment())
+        addSlide(EnergiesFragment())
+        addSlide(SleepingFragment())
+        addSlide(WatersFragment())
 
         isWizardMode = true
         showStatusBar(true)

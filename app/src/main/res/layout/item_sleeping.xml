@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardSleeping"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="3dp"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="6dp"
+    app:cardMaxElevation="4dp"
+    app:cardBackgroundColor="@color/five"
+    app:cardElevation="4dp">
+
+    <TextView
+        android:id="@+id/sleepingName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:gravity="center"
+        android:text="Pinga"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+
+</androidx.cardview.widget.CardView>
