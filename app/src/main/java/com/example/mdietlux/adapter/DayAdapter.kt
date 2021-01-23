@@ -5,42 +5,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mdietlux.R
-import com.example.mdietlux.data.model.objetives.DataObjetive
+import com.example.mdietlux.data.model.day.DataDays
 import com.example.mdietlux.utils.ItemClick
 
-class ObjetiveAdapter(
-    val context: Context,
-    val dataList: List<DataObjetive>,
-    val itemClick: ItemClick
-) : RecyclerView.Adapter<ObjetiveAdapter.ViewHolder>(){
+class DayAdapter(
+    val context: Context, val dataList: List<DataDays>, val itemClick: ItemClick
+) : RecyclerView.Adapter<DayAdapter.ViewHolder>() {
 
     private var selectedItem = 0
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
-        val cardOjetive: CardView = item.findViewById(R.id.cardObjetive)
-        val textObjetive: TextView = item.findViewById(R.id.objetiveName)
+        val cardDay: CardView = item.findViewById(R.id.cardDay)
+        val textDay: TextView = item.findViewById(R.id.dayName)
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(context).inflate(R.layout.item_objetives, parent, false)
+            LayoutInflater.from(context).inflate(R.layout.item_day, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = dataList[position]
-        holder.textObjetive.text = data.name
+        holder.textDay.text = data.name
 
         if (selectedItem == position) {
-            holder.cardOjetive.setCardBackgroundColor(context.resources.getColor(R.color.green_500))
-        }else{
-            holder.cardOjetive.setCardBackgroundColor(context.resources.getColor(R.color.five))
+            holder.cardDay.setCardBackgroundColor(context.resources.getColor(R.color.green_500))
+        } else {
+            holder.cardDay.setCardBackgroundColor(context.resources.getColor(R.color.five))
         }
 
         holder.itemView.setOnClickListener {
@@ -56,5 +53,4 @@ class ObjetiveAdapter(
     override fun getItemCount(): Int {
         return dataList.size
     }
-
 }

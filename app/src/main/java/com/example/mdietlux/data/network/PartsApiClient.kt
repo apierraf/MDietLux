@@ -2,6 +2,7 @@ package com.example.mdietlux.data.network
 
 import com.example.mdietlux.data.model.body.BodyTypes
 import com.example.mdietlux.data.model.countries.Countries
+import com.example.mdietlux.data.model.day.TypicalDays
 import com.example.mdietlux.data.model.objetives.ObjetivesModel
 import com.example.mdietlux.data.model.resume.Resume
 import kotlinx.coroutines.Deferred
@@ -23,4 +24,7 @@ interface PartsApiClient {
 
     @GET("body-types")
     fun getBodyTypes(): Deferred<BodyTypes>
+
+    @GET("typical-days")
+    fun getTypicalDay(): Deferred<TypicalDays>
 }

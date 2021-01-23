@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.mdietlux.R
 import com.example.mdietlux.ui.register.body.BodyFragment
 import com.example.mdietlux.ui.register.countries.CountriesFragment
+import com.example.mdietlux.ui.register.day.TypicalDaysFragment
 import com.example.mdietlux.ui.register.gender.GenderFragment
 import com.example.mdietlux.ui.register.measure.MeasureFragment
 import com.example.mdietlux.ui.register.objetives.ObjetivesFragment
@@ -24,6 +25,7 @@ class OnBoardingApp : AppIntro2() {
         addSlide(ObjetivesFragment())
         addSlide(MeasureFragment())
         addSlide(BodyFragment())
+        addSlide(TypicalDaysFragment())
 
         isWizardMode = true
         showStatusBar(true)

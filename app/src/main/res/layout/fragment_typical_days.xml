@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black"
-    tools:context=".ui.register.objetives.ObjetivesFragment">
+    tools:context=".ui.register.day.TypicalDaysFragment">
 
     <TextView
         android:layout_width="match_parent"
@@ -14,15 +14,14 @@
         android:fontFamily="@font/source_sans_pro"
         android:gravity="center"
         android:textColor="@color/white"
-        android:text="@string/objetive_text"
+        android:text="@string/typical_day_text"
         android:textSize="30sp" />
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvObjetive"
+        android:id="@+id/rvDays"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"/>
-
 
 </LinearLayout>
