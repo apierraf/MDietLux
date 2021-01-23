@@ -1,5 +1,6 @@
 package com.example.mdietlux.data.network
 
+import com.example.mdietlux.data.model.body.BodyTypes
 import com.example.mdietlux.data.model.countries.Countries
 import com.example.mdietlux.data.model.objetives.ObjetivesModel
 import com.example.mdietlux.data.model.resume.Resume
@@ -19,4 +20,7 @@ interface PartsApiClient {
 
     @GET("objectives")
     fun getObjetives(): Deferred<ObjetivesModel>
+
+    @GET("body-types")
+    fun getBodyTypes(): Deferred<BodyTypes>
 }

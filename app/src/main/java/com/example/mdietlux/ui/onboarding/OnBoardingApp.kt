@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.mdietlux.R
+import com.example.mdietlux.ui.register.body.BodyFragment
 import com.example.mdietlux.ui.register.countries.CountriesFragment
 import com.example.mdietlux.ui.register.gender.GenderFragment
 import com.example.mdietlux.ui.register.measure.MeasureFragment
@@ -22,6 +23,7 @@ class OnBoardingApp : AppIntro2() {
         addSlide(CountriesFragment())
         addSlide(ObjetivesFragment())
         addSlide(MeasureFragment())
+        addSlide(BodyFragment())
 
         isWizardMode = true
         showStatusBar(true)

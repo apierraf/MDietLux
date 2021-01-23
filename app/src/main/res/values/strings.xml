@@ -37,5 +37,9 @@
     <string name="weight_OBJtitle">Ingrese el peso deseado:</string>
     <string name="metric_measure">Metrica</string>
     <string name="imperial_measure">Imperial</string>
+    <string name="height_info_text_imperial_dialog">La altura es expresada en (plg)</string>
+    <string name="weight_info_text_imperial_dialog">El peso se expresa en (lb)</string>
+    <string name="body_types_text">Selecciona el tipo de cuerpo que te describe mejor</string>
+    <string name="body_type_info">Cada tipo de cuerpo tiene una estructura metabólica específica.</string>
 
 </resources>
