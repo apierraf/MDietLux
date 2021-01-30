@@ -26,7 +26,7 @@
 
     <style name="TextInputLayoutHintStyle" parent="TextAppearance.Design.Hint">
         <item name="fontFamily">@font/source_sans_pro</item>
-        <item name="android:fontFamily">@font/source_sans_pro</item>
+        <item name="backgroundInsetTop">@color/black</item>
     </style>
 
     <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">

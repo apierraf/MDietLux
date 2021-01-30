@@ -6,11 +6,6 @@
     app:startDestination="@id/welcomeFragment">
 
     <fragment
-        android:id="@+id/dashboardFragment"
-        android:name="com.example.mdietlux.ui.dasboard.DashboardFragment"
-        android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-    <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.mdietlux.ui.login.LoginFragment"
         android:label="@string/login"

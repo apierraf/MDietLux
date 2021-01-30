@@ -7,18 +7,17 @@ import com.example.mdietlux.data.model.energies.Energies
 import com.example.mdietlux.data.model.exercices.Exercices
 import com.example.mdietlux.data.model.habits.Habit
 import com.example.mdietlux.data.model.objetives.ObjetivesModel
+import com.example.mdietlux.data.model.resume.DataBody
 import com.example.mdietlux.data.model.resume.Resume
 import com.example.mdietlux.data.model.sleeping.Sleeping
 import com.example.mdietlux.data.model.waters.Waters
 import kotlinx.coroutines.Deferred
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface PartsApiClient {
 
-    @GET("resume/{email}")
-    fun getResume(@Path("email") email: String):
+    @POST("resume")
+    fun getResume(@Body dataBody: DataBody):
             Deferred<Resume>
 
     @GET("countries")

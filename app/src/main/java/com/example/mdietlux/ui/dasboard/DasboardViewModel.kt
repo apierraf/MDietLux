@@ -3,6 +3,7 @@ package com.example.mdietlux.ui.dasboard
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.mdietlux.R
+import com.example.mdietlux.data.model.resume.DataBody
 import com.example.mdietlux.data.network.WebAccess
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -23,53 +24,61 @@ class DasboardViewModel : ViewModel() {
     var percentPerson: MutableLiveData<String> = MutableLiveData()
 
 
-    fun loadResume() {
+    fun loadResume(dataBody: DataBody) {
         // Launch Kotlin Coroutine on Android's main thread
         GlobalScope.launch(Dispatchers.Main) {
             // Execute web request through coroutine call adapter & retrofit
-            val webResponse = WebAccess.partsApi.getResume("prueba@gmail.com").await()
+            val webResponse = WebAccess.partsApi.getResume(dataBody).await()
 
-            sex.value = webResponse.sex
+            sex.value = webResponse.data?.sex
 
-            seccion.apply {
-                this.value = webResponse.sessionId
-            }
+            /* seccion.apply {
+                 this.value = webResponse.data.
+             }*/
 
-            (webResponse.high + " cm").also {
+            (webResponse.data?.high + " cm").also {
                 heigth.apply {
                     this.value = it
                 }
             }
             age.apply {
-                this.value = webResponse.years
+                this.value = webResponse.data?.years
             }
-            (webResponse.currentWeight + " kg").also {
+            (webResponse.data?.currentWeight + " kg").also {
                 weigth.apply {
                     this.value = it
                 }
-            }
-            ageMeta.apply {
-                this.value = webResponse.metabolicAge.toString()
-            }
-            (String.format("%.1f", webResponse.weightLossFirstWeek) + " kg").also {
-                firstWeek.apply {
-                    this.value = it
+
+                ageMeta.apply {
+                    this.value = webResponse.data?.metabolicAge.toString()
                 }
-            }
-            (String.format("%.1f", webResponse.waterLitres) + " L").also {
-                water.apply {
-                    this.value = it
+
+                (webResponse.data?.let {
+                    String.format(
+                        "%.1f",
+                        it.weightLossFirstWeek
+                    )
+                } + " kg").also {
+                    firstWeek.apply {
+                        this.value = it
+                    }
                 }
-            }
-            imcData.apply {
-                this.value = webResponse.imc.toString()
-            }
-            imcNotification.apply {
-                this.value = webResponse.imcState
-            }
-            (webResponse.percentageOfEffectiveness.toString() + "%").also {
-                percentPerson.apply {
-                    this.value = it
+
+                (webResponse.data?.let { String.format("%.1f", it.waterLitres) } + " L").also {
+                    water.apply {
+                        this.value = it
+                    }
+                }
+                imcData.apply {
+                    this.value = webResponse.data?.imc.toString()
+                }
+                imcNotification.apply {
+                    this.value = webResponse.data?.imcState
+                }
+                (webResponse.data?.percentageOfEffectiveness.toString() + "%").also {
+                    percentPerson.apply {
+                        this.value = it
+                    }
                 }
             }
         }

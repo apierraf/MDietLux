@@ -9,9 +9,9 @@ data class CaloriesForWeightLoss(
     @Json(name = "calories")
     val calories: Double?,
     @Json(name = "max")
-    val max: Int?,
+    val max: Double?,
     @Json(name = "min")
-    val min: Int?,
+    val min: Double?,
     @Json(name = "percent")
     val percent: Double?
 )

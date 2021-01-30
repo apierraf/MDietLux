@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.mdietlux.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -29,7 +30,7 @@ class LoginFragment : Fragment() {
 
         fbLogin = view.findViewById(R.id.button)
         fbLogin.setOnClickListener {
-
+            //view.findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
         }
 
     }

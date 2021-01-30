@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.mdietlux.R
+import com.example.mdietlux.data.model.resume.DataBody
 import com.example.mdietlux.data.network.WebAccess
 import com.example.mdietlux.utils.CustomMarker
 import com.github.mikephil.charting.animation.Easing
@@ -27,7 +28,7 @@ import kotlinx.coroutines.launch
 
 class DashboardFragment : Fragment() {
 
-    lateinit var sessionTextView: TextView
+    //lateinit var sessionTextView: TextView
     lateinit var heigtTextView: TextView
     lateinit var ageTextView: TextView
     lateinit var weightTextView: TextView
@@ -57,7 +58,7 @@ class DashboardFragment : Fragment() {
         viewModel = ViewModelProvider(this)
             .get(DasboardViewModel::class.java)
 
-        sessionTextView = view.findViewById(R.id.txtSession)
+       // sessionTextView = view.findViewById(R.id.txtSession)
         heigtTextView = view.findViewById(R.id.heightData)
         ageTextView = view.findViewById(R.id.ageData)
         weightTextView = view.findViewById(R.id.weightData)
@@ -76,19 +77,24 @@ class DashboardFragment : Fragment() {
 
         mChart = view.findViewById(R.id.chart1)
 
-        viewModel.loadResume()
+        val dataBody = DataBody("male", "cosa", 1, 33, 160, 90, 100, 1, 1, 1, 1, 1, 1, 1)
+
+        viewModel.loadResume(dataBody)
 
         progressDialog.show()
         progressDialog.setMessage("Cargando")
 
-        viewModel.seccion.observe(viewLifecycleOwner, {
-            if (it != null){
+        /*viewModel.seccion.observe(viewLifecycleOwner, {
+            if (it != null) {
                 progressDialog.hide()
             }
             sessionTextView.text = it
-        })
+        })*/
 
         viewModel.heigth.observe(viewLifecycleOwner, {
+            if (it != null) {
+                progressDialog.hide()
+            }
             heigtTextView.text = it
         })
 
@@ -121,11 +127,12 @@ class DashboardFragment : Fragment() {
             percentPerson.text = it
         })
 
-        viewModel.sex.observe(viewLifecycleOwner,{
-            if(it == "male"){
-                sexImageView.setImageResource(R.drawable.ic_male
+        viewModel.sex.observe(viewLifecycleOwner, {
+            if (it == "male") {
+                sexImageView.setImageResource(
+                    R.drawable.ic_male
                 )
-            }else{
+            } else {
                 sexImageView.setImageResource(R.drawable.ic_female)
             }
         })

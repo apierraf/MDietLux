@@ -1,9 +1,15 @@
 package com.example.mdietlux.ui.onboarding
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.mdietlux.R
+import com.example.mdietlux.ui.dasboard.DasboardActivity
 import com.example.mdietlux.ui.register.body.BodyFragment
 import com.example.mdietlux.ui.register.countries.CountriesFragment
 import com.example.mdietlux.ui.register.day.TypicalDaysFragment
@@ -65,6 +71,9 @@ class OnBoardingApp : AppIntro2() {
     override fun onDonePressed(currentFragment: Fragment?) {
         super.onDonePressed(currentFragment)
         // Decide what to do when the user clicks on "Done"
+        val intent = Intent(this, DasboardActivity::class.java)
+        startActivity(intent)
         finish()
     }
+
 }

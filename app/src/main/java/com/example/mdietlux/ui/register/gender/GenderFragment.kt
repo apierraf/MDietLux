@@ -52,7 +52,7 @@ class GenderFragment : Fragment(), SlidePolicy {
             editor?.putString("sex", gender)
             editor?.apply()
 
-            Toast.makeText(view.context, pref?.getString("my-string",""), Toast.LENGTH_LONG).show()
+           // Toast.makeText(view.context, pref?.getString("my-string",""), Toast.LENGTH_LONG).show()
             imageViewMale.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.green_500))
             imageViewFemale.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.five))
         }
@@ -65,7 +65,7 @@ class GenderFragment : Fragment(), SlidePolicy {
             editor?.putString("sex", gender)
             editor?.apply()
 
-            Toast.makeText(view.context, pref?.getString("my-string",""), Toast.LENGTH_LONG).show()
+            //Toast.makeText(view.context, pref?.getString("my-string",""), Toast.LENGTH_LONG).show()
             imageViewFemale.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.green_500))
             imageViewMale.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.five))
 
