@@ -2,6 +2,8 @@ package com.example.mdietlux.ui.register.countries
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,15 +16,18 @@ import com.example.mdietlux.R
 import com.example.mdietlux.adapter.CountriesAdapter
 import com.example.mdietlux.data.network.WebAccess
 import com.example.mdietlux.utils.ItemClick
+import com.github.appintro.SlidePolicy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class CountriesFragment : Fragment() {
+class CountriesFragment : Fragment(), SlidePolicy {
 
     lateinit var recyclerCountries: RecyclerView
     lateinit var progressDialog: AlertDialog
+    var country = ""
+    lateinit var pref: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +39,8 @@ class CountriesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        pref = activity?.getSharedPreferences("myPref", Context.MODE_PRIVATE)!!
 
         recyclerCountries = view.findViewById(R.id.rvCountries)
         progressDialog = ProgressDialog(view.context)
@@ -58,12 +65,14 @@ class CountriesFragment : Fragment() {
                             it1.applicationContext,
                             it, object : ItemClick {
                                 override fun clicked(pos: Int) {
-                                    Toast.makeText(
-                                        this@CountriesFragment.context,
-                                        "Pais seleccionado: " + it[pos].name,
-                                        Toast.LENGTH_LONG
-                                    ).show()
 
+                                    country = it[pos].id.toString()
+                                    val editor = pref?.edit()
+                                    editor?.putString("country", country)
+                                    editor?.apply()
+
+                                    val test = pref.getString("country","")
+                                    Toast.makeText(activity!!.applicationContext,test,Toast.LENGTH_LONG).show()
                                 }
                             })
                     }
@@ -74,5 +83,12 @@ class CountriesFragment : Fragment() {
                 false
             )
         }
+    }
+
+    override val isPolicyRespected: Boolean
+        get() = country.isNotEmpty()
+
+    override fun onUserIllegallyRequestedNextPage() {
+        Toast.makeText(activity?.applicationContext, "Seleccione un país", Toast.LENGTH_LONG).show()
     }
 }

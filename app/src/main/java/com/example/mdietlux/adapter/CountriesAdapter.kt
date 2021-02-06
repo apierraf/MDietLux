@@ -14,12 +14,13 @@ import com.example.mdietlux.R
 import com.example.mdietlux.data.model.countries.DataCountries
 import com.example.mdietlux.utils.ItemClick
 
-class CountriesAdapter (val context: Context, val dataList : List<DataCountries>, val itemClick: ItemClick) : RecyclerView.Adapter<CountriesAdapter.ViewHolder>()  {
+class CountriesAdapter(val context: Context, val dataList: List<DataCountries>, val itemClick: ItemClick) : RecyclerView.Adapter<CountriesAdapter.ViewHolder>() {
 
+    private var selectedItem = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(context).inflate(R.layout.item_countries, parent, false)
+                LayoutInflater.from(context).inflate(R.layout.item_countries, parent, false)
         )
     }
 
@@ -28,23 +29,38 @@ class CountriesAdapter (val context: Context, val dataList : List<DataCountries>
         holder.textClassified.text = dataModel.name
 
         Glide.with(context)
-            .load("https://mdietlux.com/" + dataModel.image)
-            .centerInside()
-            .override(250)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(holder.imageClassified)
+                .load("https://mdietlux.com/" + dataModel.image)
+                .centerInside()
+                .override(250)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.imageClassified)
+
+        if (selectedItem == position) {
+            holder.cardView.setCardBackgroundColor(context.resources.getColor(R.color.green_500))
+        } else {
+            holder.cardView.setCardBackgroundColor(context.resources.getColor(R.color.five))
+        }
+
+        holder.itemView.setOnClickListener {
+            itemClick.clicked(position)
+            val previousItem = selectedItem
+            selectedItem = position
+            notifyItemChanged(previousItem)
+            notifyItemChanged(position)
+        }
+
         holder.cardView.setOnClickListener {
             itemClick.clicked(position)
         }
     }
 
     override fun getItemCount(): Int {
-       return dataList.size
+        return dataList.size
     }
 
-    class ViewHolder (item: View) : RecyclerView.ViewHolder(item){
-        val imageClassified : ImageView = item.findViewById(R.id.imageCountries)
-        val textClassified : TextView = item.findViewById(R.id.textCountries)
-        val cardView : CardView = item.findViewById(R.id.cardCountries)
+    class ViewHolder(item: View) : RecyclerView.ViewHolder(item) {
+        val imageClassified: ImageView = item.findViewById(R.id.imageCountries)
+        val textClassified: TextView = item.findViewById(R.id.textCountries)
+        val cardView: CardView = item.findViewById(R.id.cardCountries)
     }
 }

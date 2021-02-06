@@ -2,33 +2,28 @@ package com.example.mdietlux.ui.dasboard
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.mdietlux.R
 import com.example.mdietlux.data.model.resume.DataBody
-import com.example.mdietlux.data.network.WebAccess
-import com.example.mdietlux.utils.CustomMarker
-import com.github.mikephil.charting.animation.Easing
-import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.data.Entry
-import com.github.mikephil.charting.data.LineData
-import com.github.mikephil.charting.data.LineDataSet
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.marcinmoskala.arcseekbar.ArcSeekBar
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import de.hdodenhof.circleimageview.CircleImageView
 
 
 class DashboardFragment : Fragment() {
 
-    //lateinit var sessionTextView: TextView
     lateinit var heigtTextView: TextView
     lateinit var ageTextView: TextView
     lateinit var weightTextView: TextView
@@ -38,15 +33,17 @@ class DashboardFragment : Fragment() {
     lateinit var arcSeekBar: ArcSeekBar
     lateinit var imcDataTextView: TextView
     lateinit var imcNotification: TextView
-    lateinit var sexImageView: ImageView
+    lateinit var sexImageView: CircleImageView
     lateinit var percentPerson: TextView
-    lateinit var mChart: LineChart
     lateinit var progressDialog: AlertDialog
     lateinit var viewModel: DasboardViewModel
+    lateinit var pref : SharedPreferences
+    lateinit var scrollView: ScrollView
+    lateinit var fab: ExtendedFloatingActionButton
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
@@ -58,7 +55,7 @@ class DashboardFragment : Fragment() {
         viewModel = ViewModelProvider(this)
             .get(DasboardViewModel::class.java)
 
-       // sessionTextView = view.findViewById(R.id.txtSession)
+        //sessionTextView = view.findViewById(R.id.txtSession)
         heigtTextView = view.findViewById(R.id.heightData)
         ageTextView = view.findViewById(R.id.ageData)
         weightTextView = view.findViewById(R.id.weightData)
@@ -75,15 +72,27 @@ class DashboardFragment : Fragment() {
         progressDialog = ProgressDialog(view.context)
         progressDialog.show()
 
-        mChart = view.findViewById(R.id.chart1)
+        pref = activity?.getSharedPreferences("myPref", Context.MODE_PRIVATE)!!
 
-        val dataBody = DataBody("male", "cosa", 1, 33, 160, 90, 100, 1, 1, 1, 1, 1, 1, 1)
 
-        viewModel.loadResume(dataBody)
+        viewModel.loadResume(getPrefDataBody())
 
         progressDialog.show()
         progressDialog.setMessage("Cargando")
 
+        fab = view.findViewById(R.id.fbDiet)
+        fab.setOnClickListener {
+            view.findNavController().navigate(R.id.action_dashboardFragment_to_dietEmailFragment)
+        }
+        scrollView = view.findViewById(R.id.scrollView2)
+
+        scrollView.viewTreeObserver.addOnScrollChangedListener {
+            val scrollX: Int = scrollView.scrollX //for horizontalScrollView
+            val scrollY: Int = scrollView.scrollY //for verticalScrollView
+
+            fab.isExtended = scrollY <= 0
+
+        }
         /*viewModel.seccion.observe(viewLifecycleOwner, {
             if (it != null) {
                 progressDialog.hide()
@@ -130,53 +139,32 @@ class DashboardFragment : Fragment() {
         viewModel.sex.observe(viewLifecycleOwner, {
             if (it == "male") {
                 sexImageView.setImageResource(
-                    R.drawable.ic_male
+                        R.drawable.ic_male
                 )
             } else {
                 sexImageView.setImageResource(R.drawable.ic_female)
             }
         })
 
-        setData()
     }
 
+    fun getPrefDataBody(): DataBody{
 
-    private fun setData() {
-        //Part1
-        val entries = ArrayList<Entry>()
-
-        //Part2
-        entries.add(Entry(1f, 90f))
-        entries.add(Entry(2f, 70f))
-        entries.add(Entry(3f, 50f))
-
-
-        //Part3
-        val vl = LineDataSet(entries, "My Type")
-        //Part4
-        vl.setDrawValues(false)
-        vl.setDrawFilled(true)
-        vl.lineWidth = 3f
-        vl.fillColor = R.color.teal_700
-        vl.fillAlpha = R.color.teal_200
-        //Part5
-        mChart.xAxis.labelRotationAngle = 0f
-        //Part6
-        mChart.data = LineData(vl)
-        //Part7
-        mChart.axisRight.isEnabled = false
-        mChart.xAxis.axisMaximum = 3 + 0.1f
-        //Part8
-        mChart.setTouchEnabled(true)
-        mChart.setPinchZoom(true)
-        //Part9
-        mChart.description.text = "Days"
-        mChart.setNoDataText("No forex yet!")
-        //Part10
-        mChart.animateX(1800, Easing.EaseInCubic)
-        //Part11
-        val markerView = this.context?.let { CustomMarker(it, R.layout.marker_view) }
-        mChart.marker = markerView
+        return DataBody(
+                pref.getString("sex", ""),
+                "cosa",
+                pref.getString("country", "")!!.toInt(),
+                pref.getInt("age", 0),
+                pref.getInt("heigth", 0),
+                pref.getInt("weigth", 0),
+                pref.getInt("weigthOBJ", 0),
+                pref.getString("body_types", "")!!.toInt(),
+                pref.getString("day", "")!!.toInt(),
+                pref.getString("habits", "")!!.toInt(),
+                pref.getString("exercices", "")!!.toInt(),
+                pref.getString("energies", "")!!.toInt(),
+                pref.getString("sleeping", "")!!.toInt(),
+                pref.getString("water", "")!!.toInt(),
+        )
     }
-
 }

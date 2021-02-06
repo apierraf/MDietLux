@@ -46,5 +46,10 @@
     <string name="energies_text">Nivel de energía diaria</string>
     <string name="text_sleeping">Promedio horas de sueños</string>
     <string name="waters_text">Consumo diario de agua</string>
+    <string name="get_diet">Obtener Dieta</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="diet_email_text">Hemos creado una Dieta Personalizada que te ayudará a alcanzar tu objetivo Únete a nuestros más de 500.000 usuarios satisfechos Por favor, introduzca su correo electrónico</string>
+    <string name="email">email</string>
 
 </resources>

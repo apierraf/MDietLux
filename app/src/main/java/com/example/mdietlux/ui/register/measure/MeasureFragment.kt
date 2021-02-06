@@ -12,28 +12,31 @@ import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.example.mdietlux.R
+import com.github.appintro.SlidePolicy
 import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.textfield.TextInputEditText
 import com.shawnlin.numberpicker.NumberPicker
 import kotlinx.coroutines.launch
 
-class MeasureFragment : Fragment() {
+class MeasureFragment : Fragment() , SlidePolicy{
 
     lateinit var pref: SharedPreferences
 
     lateinit var ageEditText: TextInputEditText
-    var ageData: String = "0"
+    var ageData: String = ""
 
     lateinit var heigthEditText: TextInputEditText
-    var heigthDara = "0"
+    var heigthDara = ""
 
     lateinit var weigthEditText: TextInputEditText
-    var weigthDara = "0"
+    var weigthDara = ""
 
     lateinit var weigthObjEditText: TextInputEditText
-    var weightOBJ = "0"
+    var weightOBJ = ""
 
     var isMetric: Boolean = true
+
+    var isDataComplete = false
 
     lateinit var toggleButton: MaterialButtonToggleGroup
 
@@ -219,5 +222,17 @@ class MeasureFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun isCompleted():Boolean{
+        isDataComplete = ageData.isNotEmpty() && heigthDara.isNotEmpty() && weigthDara.isNotEmpty() && weightOBJ.isNotEmpty()
+        return isDataComplete
+    }
+
+    override val isPolicyRespected: Boolean
+        get() = isCompleted()
+
+    override fun onUserIllegallyRequestedNextPage() {
+        Toast.makeText(activity?.applicationContext, "Requiere llenar todos los datos", Toast.LENGTH_LONG).show()
     }
 }

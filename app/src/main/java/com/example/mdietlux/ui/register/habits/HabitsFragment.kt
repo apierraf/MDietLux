@@ -2,6 +2,8 @@ package com.example.mdietlux.ui.register.habits
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,14 +17,18 @@ import com.example.mdietlux.adapter.AdapterHabit
 import com.example.mdietlux.adapter.DayAdapter
 import com.example.mdietlux.data.network.WebAccess
 import com.example.mdietlux.utils.ItemClick
+import com.github.appintro.SlidePolicy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class HabitsFragment : Fragment() {
+class HabitsFragment : Fragment(), SlidePolicy {
 
     lateinit var recyclerHabit: RecyclerView
     lateinit var progressDialog: AlertDialog
+
+    var habits = ""
+    lateinit var pref: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +41,7 @@ class HabitsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        pref = activity?.getSharedPreferences("myPref", Context.MODE_PRIVATE)!!
         recyclerHabit = view.findViewById(R.id.rvHabit)
         progressDialog = ProgressDialog(view.context)
         progressDialog.setMessage("Cargando")
@@ -60,13 +67,22 @@ class HabitsFragment : Fragment() {
             recyclerHabit.adapter = AdapterHabit(view?.context!!, webResponse.data!!, object :
                 ItemClick {
                 override fun clicked(pos: Int) {
-                    Toast.makeText(
-                        this@HabitsFragment.context,
-                        webResponse.data[pos].name,
-                        Toast.LENGTH_LONG
-                    ).show()
+                    habits = webResponse.data[pos].id.toString()
+                    val editor = pref.edit()
+                    editor?.putString("habits", habits)
+                    editor?.apply()
+
+                    val test = pref.getString("habits","")
+                    Toast.makeText(activity!!.applicationContext,test,Toast.LENGTH_LONG).show()
                 }
             })
         }
+    }
+
+    override val isPolicyRespected: Boolean
+        get() = habits.isNotEmpty()
+
+    override fun onUserIllegallyRequestedNextPage() {
+        Toast.makeText(activity?.applicationContext, "Seleccione un hábito", Toast.LENGTH_LONG).show()
     }
 }

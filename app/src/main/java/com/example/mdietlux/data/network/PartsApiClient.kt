@@ -6,6 +6,8 @@ import com.example.mdietlux.data.model.day.TypicalDays
 import com.example.mdietlux.data.model.energies.Energies
 import com.example.mdietlux.data.model.exercices.Exercices
 import com.example.mdietlux.data.model.habits.Habit
+import com.example.mdietlux.data.model.login.LoginPostModel
+import com.example.mdietlux.data.model.login.LoginResponse
 import com.example.mdietlux.data.model.objetives.ObjetivesModel
 import com.example.mdietlux.data.model.resume.DataBody
 import com.example.mdietlux.data.model.resume.Resume
@@ -15,6 +17,10 @@ import kotlinx.coroutines.Deferred
 import retrofit2.http.*
 
 interface PartsApiClient {
+
+    @POST("resume")
+    fun postLogin(@Body loginPostModel: LoginPostModel):
+            Deferred<LoginResponse>
 
     @POST("resume")
     fun getResume(@Body dataBody: DataBody):

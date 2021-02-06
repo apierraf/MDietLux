@@ -9,5 +9,14 @@
         android:id="@+id/dashboardFragment"
         android:name="com.example.mdietlux.ui.dasboard.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_dietEmailFragment"
+            app:destination="@id/dietEmailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dietEmailFragment"
+        android:name="com.example.mdietlux.ui.diet.DietEmailFragment"
+        android:label="fragment_diet_email"
+        tools:layout="@layout/fragment_diet_email" />
 </navigation>

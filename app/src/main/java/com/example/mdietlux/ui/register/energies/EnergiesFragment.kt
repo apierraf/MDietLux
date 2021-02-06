@@ -2,6 +2,8 @@ package com.example.mdietlux.ui.register.energies
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,14 +17,18 @@ import com.example.mdietlux.adapter.AdapterExercices
 import com.example.mdietlux.adapter.EnergiesAdapter
 import com.example.mdietlux.data.network.WebAccess
 import com.example.mdietlux.utils.ItemClick
+import com.github.appintro.SlidePolicy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class EnergiesFragment : Fragment() {
+class EnergiesFragment : Fragment(), SlidePolicy {
 
     lateinit var recyclerEnergies: RecyclerView
     lateinit var progressDialog: AlertDialog
+
+    var energies = ""
+    lateinit var pref: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +41,7 @@ class EnergiesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        pref = activity?.getSharedPreferences("myPref", Context.MODE_PRIVATE)!!
         recyclerEnergies = view.findViewById(R.id.rvEnergies)
         progressDialog = ProgressDialog(view.context)
         progressDialog.setMessage("Cargando")
@@ -60,13 +67,22 @@ class EnergiesFragment : Fragment() {
             recyclerEnergies.adapter = EnergiesAdapter(view?.context!!, webResponse.data!!, object :
                 ItemClick {
                 override fun clicked(pos: Int) {
-                    Toast.makeText(
-                        this@EnergiesFragment.context,
-                        webResponse.data[pos].name,
-                        Toast.LENGTH_LONG
-                    ).show()
+                    energies = webResponse.data[pos].id.toString()
+                    val editor = pref.edit()
+                    editor?.putString("energies", energies)
+                    editor?.apply()
+
+                    val test = pref.getString("energies","")
+                    Toast.makeText(activity!!.applicationContext,test,Toast.LENGTH_LONG).show()
                 }
             })
         }
+    }
+
+    override val isPolicyRespected: Boolean
+        get() = energies.isNotEmpty()
+
+    override fun onUserIllegallyRequestedNextPage() {
+        Toast.makeText(activity?.applicationContext, "Seleccione el nivel de energía", Toast.LENGTH_LONG).show()
     }
 }
