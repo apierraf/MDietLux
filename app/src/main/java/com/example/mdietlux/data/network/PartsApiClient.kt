@@ -3,6 +3,7 @@ package com.example.mdietlux.data.network
 import com.example.mdietlux.data.model.body.BodyTypes
 import com.example.mdietlux.data.model.countries.Countries
 import com.example.mdietlux.data.model.day.TypicalDays
+import com.example.mdietlux.data.model.diet.Diets
 import com.example.mdietlux.data.model.energies.Energies
 import com.example.mdietlux.data.model.exercices.Exercices
 import com.example.mdietlux.data.model.habits.Habit
@@ -18,7 +19,10 @@ import retrofit2.http.*
 
 interface PartsApiClient {
 
-    @POST("resume")
+    @GET("diets/{week}/{email}")
+    fun getDiet(@Path("week") week:Int, @Path("email") email:String): Deferred<Diets>
+
+    @POST("login")
     fun postLogin(@Body loginPostModel: LoginPostModel):
             Deferred<LoginResponse>
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mdietlux">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,8 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MDietLux">
-        <activity android:name=".ui.dasboard.DasboardActivity"></activity>
+        <activity
+            android:name=".ui.app.AppUser"
+            android:label="@string/title_activity_app_user" />
+        <activity android:name=".ui.dasboard.DasboardActivity" />
         <activity
             android:name=".ui.splash.SplashActivity"
             android:screenOrientation="portrait">
