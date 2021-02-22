@@ -57,5 +57,6 @@
     <string name="title_notifications">Notifications</string>
     <string name="diet">Dieta</string>
     <string name="shop">Tienda</string>
+    <string name="evolution">Evolución</string>
 
 </resources>

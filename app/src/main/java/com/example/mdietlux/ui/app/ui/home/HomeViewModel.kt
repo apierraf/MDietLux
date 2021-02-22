@@ -14,10 +14,11 @@ class HomeViewModel : ViewModel() {
 
     var dietScheduleList : MutableLiveData<List<DietSchedule>> = MutableLiveData()
 
-    fun loadData(){
+    fun loadData(week: Int, emial: String){
         GlobalScope.launch(Dispatchers.Main) {
             // Execute web request through coroutine call adapter & retrofit
-            val webResponse = WebAccess.partsApi.getDiet(1,"eros1cu@gmail.com").await()
+            val webResponse = WebAccess.partsApi.getDiet(week,emial).await()
+
             dietScheduleList.value = webResponse.dietSchedules
 
 

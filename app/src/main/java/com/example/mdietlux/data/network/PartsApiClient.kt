@@ -5,6 +5,8 @@ import com.example.mdietlux.data.model.countries.Countries
 import com.example.mdietlux.data.model.day.TypicalDays
 import com.example.mdietlux.data.model.diet.Diets
 import com.example.mdietlux.data.model.energies.Energies
+import com.example.mdietlux.data.model.evolution.get.EvolutionGet
+import com.example.mdietlux.data.model.evolution.post.PostEvolution
 import com.example.mdietlux.data.model.exercices.Exercices
 import com.example.mdietlux.data.model.habits.Habit
 import com.example.mdietlux.data.model.login.LoginPostModel
@@ -18,6 +20,10 @@ import kotlinx.coroutines.Deferred
 import retrofit2.http.*
 
 interface PartsApiClient {
+
+    @POST("evolution/{email}")
+    fun postEvolution(@Body postEvolution: PostEvolution,@Path("email") email: String):
+            Deferred<EvolutionGet>
 
     @GET("diets/{week}/{email}")
     fun getDiet(@Path("week") week:Int, @Path("email") email:String): Deferred<Diets>

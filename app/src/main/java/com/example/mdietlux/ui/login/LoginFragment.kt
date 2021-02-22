@@ -2,18 +2,20 @@ package com.example.mdietlux.ui.login
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.mdietlux.R
 import com.example.mdietlux.data.model.login.LoginPostModel
 import com.example.mdietlux.data.network.WebAccess
 import com.example.mdietlux.ui.app.AppUser
+import com.example.mdietlux.ui.app.ui.home.HomeFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.Dispatchers
@@ -32,9 +34,11 @@ class LoginFragment : Fragment() {
 
     lateinit var postModel: LoginPostModel
 
+    lateinit var pref: SharedPreferences
+
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false)
@@ -46,6 +50,7 @@ class LoginFragment : Fragment() {
         userInput = view.findViewById(R.id.inputUser)
         passInput = view.findViewById(R.id.inputPass)
 
+        pref = activity?.getSharedPreferences("myPref", Context.MODE_PRIVATE)!!
 
         progressDialog = ProgressDialog(view.context)
 
@@ -76,6 +81,9 @@ class LoginFragment : Fragment() {
             //Toast.makeText(view?.context, webResponse.success?.token, Toast.LENGTH_LONG).show()
             if (!webResponse.success?.token.isNullOrEmpty()){
                 val intent = Intent(this@LoginFragment.context, AppUser::class.java)
+                val editor = pref.edit()
+                editor?.putString("username", userString)
+                editor?.apply()
                 activity?.startActivity(intent)
             }
         }

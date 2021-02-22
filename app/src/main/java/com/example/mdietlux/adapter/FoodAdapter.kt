@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.mdietlux.R
 import com.example.mdietlux.data.model.diet.Food
 
@@ -24,6 +26,16 @@ class FoodAdapter(context: Context, chapters: ArrayList<Food>) :
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val chapter: Food = chapters[position]
+
+        holder.tvChapterType.text = chapter.chapterType
+
+        Glide.with(context)
+                .load("https://mdietlux.com/" + chapter.imageUrl)
+                .centerInside()
+                .override(250)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.ivChapter)
+
         holder.tvChapterName.text = chapter.chapterName
     }
 
@@ -34,6 +46,7 @@ class FoodAdapter(context: Context, chapters: ArrayList<Food>) :
     inner class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var ivChapter: ImageView = itemView.findViewById(R.id.icon) as ImageView
         var tvChapterName: TextView = itemView.findViewById(R.id.text1)
+        var tvChapterType: TextView = itemView.findViewById(R.id.typefood)
 
     }
 

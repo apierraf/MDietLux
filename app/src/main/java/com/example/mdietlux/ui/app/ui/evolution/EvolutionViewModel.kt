@@ -1,10 +1,10 @@
-package com.example.mdietlux.ui.app.ui.dashboard
+package com.example.mdietlux.ui.app.ui.evolution
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class EvolutionViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"

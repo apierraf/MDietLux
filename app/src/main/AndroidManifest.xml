@@ -17,8 +17,10 @@
         android:theme="@style/Theme.MDietLux">
         <activity
             android:name=".ui.app.AppUser"
-            android:label="@string/title_activity_app_user" />
-        <activity android:name=".ui.dasboard.DasboardActivity" />
+            android:label="@string/title_activity_app_user"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.dasboard.DasboardActivity"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".ui.splash.SplashActivity"
             android:screenOrientation="portrait">
