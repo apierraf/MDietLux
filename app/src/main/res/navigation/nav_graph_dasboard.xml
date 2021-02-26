@@ -2,7 +2,6 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph_dasboard"
     app:startDestination="@id/dashboardFragment">
 
     <fragment
@@ -18,5 +17,14 @@
         android:id="@+id/dietEmailFragment"
         android:name="com.example.mdietlux.ui.diet.DietEmailFragment"
         android:label="fragment_diet_email"
-        tools:layout="@layout/fragment_diet_email" />
+        tools:layout="@layout/fragment_diet_email" >
+        <action
+            android:id="@+id/action_dietEmailFragment_to_packeFragment"
+            app:destination="@id/packeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/packeFragment"
+        android:name="com.example.mdietlux.ui.pack.PackeFragment"
+        android:label="fragment_packe"
+        tools:layout="@layout/fragment_packe" />
 </navigation>

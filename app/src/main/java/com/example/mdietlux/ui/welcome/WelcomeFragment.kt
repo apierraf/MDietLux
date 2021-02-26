@@ -29,12 +29,13 @@ class WelcomeFragment : Fragment() {
 
         btnStart = view.findViewById(R.id.materialButton)
         btnStart.setOnClickListener {
-            view.findNavController().navigate(R.id.action_welcomeFragment_to_loginFragment)
+
+            view.findNavController().navigate(R.id.action_welcomeFragment_to_onBoardingApp)
         }
 
         txtRegister = view.findViewById(R.id.txtRegister)
         txtRegister.setOnClickListener {
-            view.findNavController().navigate(R.id.action_welcomeFragment_to_onBoardingApp)
+            view.findNavController().navigate(R.id.action_welcomeFragment_to_loginFragment)
         }
     }
 }

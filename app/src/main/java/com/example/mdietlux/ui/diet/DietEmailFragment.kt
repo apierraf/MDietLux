@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.mdietlux.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -35,9 +36,10 @@ class DietEmailFragment : Fragment() {
         button = view.findViewById(R.id.btn_continue)
 
         button.setOnClickListener {
-           if (!email.validEmail() && !email.nonEmpty()){
-               textInputLayout.error = "Introduzca un email válido"
-           }
+            /*  if (!email.validEmail() && !email.nonEmpty()){
+                  textInputLayout.error = "Introduzca un email válido"
+              }*/
+            view.findNavController().navigate(R.id.action_dietEmailFragment_to_packeFragment)
         }
     }
 }

@@ -12,6 +12,7 @@ import com.example.mdietlux.data.model.habits.Habit
 import com.example.mdietlux.data.model.login.LoginPostModel
 import com.example.mdietlux.data.model.login.LoginResponse
 import com.example.mdietlux.data.model.objetives.ObjetivesModel
+import com.example.mdietlux.data.model.packe.PackeData
 import com.example.mdietlux.data.model.resume.DataBody
 import com.example.mdietlux.data.model.resume.Resume
 import com.example.mdietlux.data.model.sleeping.Sleeping
@@ -24,6 +25,9 @@ interface PartsApiClient {
     @POST("evolution/{email}")
     fun postEvolution(@Body postEvolution: PostEvolution,@Path("email") email: String):
             Deferred<EvolutionGet>
+
+    @GET("packages")
+    fun getPacke(): Deferred<PackeData>
 
     @GET("diets/{week}/{email}")
     fun getDiet(@Path("week") week:Int, @Path("email") email:String): Deferred<Diets>

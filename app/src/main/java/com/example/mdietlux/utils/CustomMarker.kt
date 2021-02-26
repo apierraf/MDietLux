@@ -19,9 +19,9 @@ class CustomMarker(context: Context, layoutResource: Int):  MarkerView(context, 
         else{
             resText = "Val: " + value.toString()
         }
-        val tvPrice :TextView = findViewById(R.id.tvPrice)
+       /* val tvPrice :TextView = findViewById(R.id.tvPrice)
         tvPrice.text = resText
-        super.refreshContent(entry, highlight)
+        super.refreshContent(entry, highlight)*/
     }
 
     override fun getOffsetForDrawingAtPoint(xpos: Float, ypos: Float): MPPointF {

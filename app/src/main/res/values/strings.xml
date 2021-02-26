@@ -6,17 +6,15 @@
     <string name="height_text">Altura</string>
     <string name="age_metabolism">Edad metabólica</string>
     <string name="first_week">Primera semana</string>
-    <string name="weight_obtain">Tendrás un peso</string>
     <string name="calories_text">Calorías diarias</string>
     <string name="whater_text">Agua recomendada</string>
     <string name="imc">IMC</string>
-    <string name="loading_data">Cargando Datos</string>
     <string name="efective_text">Efectividad</string>
     <string name="percent_explain">De personas similares perdieron más de 10kg con nuestro plan de pérdida de peso</string>
     <string name="password">Contraseña</string>
     <string name="user">Usuario</string>
     <string name="login_text_info">¡COMER SANO nunca antes SUPO TAN BIEN!</string>
-    <string name="no_register">¿No tienes una cuenta? <b>Entrar</b></string>
+    <string name="no_register">¿Tienes una cuenta? <b>Entrar</b></string>
     <string name="forgot_pass">¿Olvido su contraseña?</string>
     <string name="register">Generando dieta personalizada</string>
     <string name="gender_select">Por favor, seleccione su género:</string>
@@ -33,7 +31,6 @@
     <string name="height_info_text_dialog">La altura es expresada en (cm)</string>
     <string name="weight_info_text_dialog">El peso se expresa en (kg)</string>
     <string name="weight_title">Entre el peso:</string>
-    <string name="weight_OBJtitle">Ingrese el peso deseado:</string>
     <string name="metric_measure">Metrica</string>
     <string name="imperial_measure">Imperial</string>
     <string name="height_info_text_imperial_dialog">La altura es expresada en (plg)</string>
@@ -48,15 +45,12 @@
     <string name="waters_text">Consumo diario de agua</string>
     <string name="get_diet">Obtener Dieta</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="diet_email_text">Hemos creado una Dieta Personalizada que te ayudará a alcanzar tu objetivo Únete a nuestros más de 500.000 usuarios satisfechos Por favor, introduzca su correo electrónico</string>
     <string name="email">email</string>
     <string name="title_activity_app_user">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="diet">Dieta</string>
     <string name="shop">Tienda</string>
     <string name="evolution">Evolución</string>
+    <string name="codigo">código</string>
 
 </resources>

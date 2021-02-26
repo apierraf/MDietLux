@@ -78,7 +78,7 @@ class BodyFragment : Fragment(), SlidePolicy {
                                     editor?.apply()
 
                                     val test = pref.getString("body_types","")
-                                    Toast.makeText(activity!!.applicationContext,test,Toast.LENGTH_LONG).show()
+                                    //Toast.makeText(activity!!.applicationContext,test,Toast.LENGTH_LONG).show()
 
                                 }
                             })
