@@ -14,10 +14,11 @@
 
         <ImageView
             android:id="@+id/imageBody"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_alignParentTop="true"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
+            android:layout_centerInParent="true"
             android:backgroundTint="@color/five"
             android:src="@drawable/image_1" />
 

@@ -36,8 +36,7 @@ class BodyAdapter (val context: Context, val dataBodyList : List<DataBody>, val 
         holder.textBodyInfo.text = dataModel.description
         Glide.with(context)
             .load("https://mdietlux.com/" + dataModel.image)
-            .centerInside()
-            .override(300,300)
+            .fitCenter()
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(holder.imageBody)
         holder.cardView.setOnClickListener {
