@@ -9,18 +9,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.mdietlux.R
-import com.github.appintro.SlidePolicy
 
-class GenderFragment : Fragment(), SlidePolicy {
+class GenderFragment : Fragment() {
 
-
-    override val isPolicyRespected: Boolean
-        get() = gender.isNotEmpty() // Your custom logic here.
-
-    override fun onUserIllegallyRequestedNextPage() {
-        Toast.makeText(activity?.applicationContext, "Seleccione un género", Toast.LENGTH_LONG).show()
-    }
 
     lateinit var imageViewMale: ImageView
     lateinit var imageViewFemale: ImageView
@@ -55,6 +48,8 @@ class GenderFragment : Fragment(), SlidePolicy {
            // Toast.makeText(view.context, pref?.getString("my-string",""), Toast.LENGTH_LONG).show()
             imageViewMale.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.green_500))
             imageViewFemale.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.five))
+
+            view.findNavController().navigate(R.id.action_genderFragment_to_countriesFragment)
         }
 
         imageViewFemale.setOnClickListener {
@@ -68,6 +63,7 @@ class GenderFragment : Fragment(), SlidePolicy {
             //Toast.makeText(view.context, pref?.getString("my-string",""), Toast.LENGTH_LONG).show()
             imageViewFemale.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.green_500))
             imageViewMale.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.five))
+            view.findNavController().navigate(R.id.action_genderFragment_to_countriesFragment)
 
         }
 

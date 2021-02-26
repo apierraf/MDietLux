@@ -152,7 +152,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/ic_gradient_age"
+                    android:background="@color/five"
                     android:orientation="vertical">
 
                     <TextView
@@ -200,7 +200,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/ic__gradient_first_week"
+                    android:background="@color/five"
                     android:orientation="vertical">
 
                     <TextView
@@ -248,7 +248,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/ic_gradient_efective"
+                    android:background="@color/five"
                     android:orientation="vertical">
 
                     <TextView
@@ -312,7 +312,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/ic_gradient_calories"
+                    android:background="@color/five"
                     android:orientation="vertical">
 
                     <TextView
@@ -359,7 +359,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/ic_gradient_water"
+                    android:background="@color/five"
                     android:orientation="vertical">
 
                     <TextView
@@ -407,6 +407,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/five"
                     android:orientation="vertical">
 
                     <TextView

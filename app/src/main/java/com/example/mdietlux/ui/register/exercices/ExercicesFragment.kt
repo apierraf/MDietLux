@@ -5,24 +5,22 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mdietlux.R
 import com.example.mdietlux.adapter.AdapterExercices
-import com.example.mdietlux.adapter.AdapterHabit
 import com.example.mdietlux.data.network.WebAccess
 import com.example.mdietlux.utils.ItemClick
-import com.github.appintro.SlidePolicy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class ExercicesFragment : Fragment(), SlidePolicy {
+class ExercicesFragment : Fragment() {
 
     lateinit var recyclerExercices: RecyclerView
     lateinit var progressDialog: AlertDialog
@@ -74,15 +72,9 @@ class ExercicesFragment : Fragment(), SlidePolicy {
 
                     val test = pref.getString("exercices","")
                     //Toast.makeText(activity!!.applicationContext,test,Toast.LENGTH_LONG).show()
+                    view!!.findNavController().navigate(R.id.action_exercicesFragment_to_energiesFragment)
                 }
             })
         }
-    }
-
-    override val isPolicyRespected: Boolean
-        get() = exercices.isNotEmpty()
-
-    override fun onUserIllegallyRequestedNextPage() {
-        Toast.makeText(activity?.applicationContext, "Seleccione una actividad física", Toast.LENGTH_LONG).show()
     }
 }

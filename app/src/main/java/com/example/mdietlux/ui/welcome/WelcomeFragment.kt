@@ -30,7 +30,7 @@ class WelcomeFragment : Fragment() {
         btnStart = view.findViewById(R.id.materialButton)
         btnStart.setOnClickListener {
 
-            view.findNavController().navigate(R.id.action_welcomeFragment_to_onBoardingApp)
+            view.findNavController().navigate(R.id.action_welcomeFragment_to_genderFragment)
         }
 
         txtRegister = view.findViewById(R.id.txtRegister)

@@ -19,8 +19,6 @@
             android:name=".ui.app.AppUser"
             android:label="@string/title_activity_app_user"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".ui.dasboard.DasboardActivity"
-            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".ui.splash.SplashActivity"
             android:screenOrientation="portrait">
@@ -32,10 +30,6 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.onboarding.OnBoardingApp"
-            android:label="@string/register"
             android:screenOrientation="portrait" />
     </application>
 

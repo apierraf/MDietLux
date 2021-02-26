@@ -39,7 +39,7 @@ class DietEmailFragment : Fragment() {
             /*  if (!email.validEmail() && !email.nonEmpty()){
                   textInputLayout.error = "Introduzca un email válido"
               }*/
-            view.findNavController().navigate(R.id.action_dietEmailFragment_to_packeFragment)
+            view.findNavController().navigate(R.id.action_dietEmailFragment2_to_packeFragment2)
         }
     }
 }

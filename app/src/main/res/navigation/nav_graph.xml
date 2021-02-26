@@ -9,10 +9,6 @@
         android:name="com.example.mdietlux.ui.login.LoginFragment"
         android:label="@string/login"
         tools:layout="@layout/fragment_login" />
-    <activity
-        android:id="@+id/onBoardingApp"
-        android:name="com.example.mdietlux.ui.onboarding.OnBoardingApp"
-        android:label="OnBoardingApp" />
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.mdietlux.ui.welcome.WelcomeFragment"
@@ -22,8 +18,130 @@
             android:id="@+id/action_welcomeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_welcomeFragment_to_onBoardingApp"
-            app:destination="@id/onBoardingApp" />
+            android:id="@+id/action_welcomeFragment_to_genderFragment"
+            app:destination="@id/genderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/genderFragment"
+        android:name="com.example.mdietlux.ui.register.gender.GenderFragment"
+        android:label="fragment_gender"
+        tools:layout="@layout/fragment_gender" >
+        <action
+            android:id="@+id/action_genderFragment_to_countriesFragment"
+            app:destination="@id/countriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/countriesFragment"
+        android:name="com.example.mdietlux.ui.register.countries.CountriesFragment"
+        android:label="fragment_countries"
+        tools:layout="@layout/fragment_countries" >
+        <action
+            android:id="@+id/action_countriesFragment_to_objetivesFragment"
+            app:destination="@id/objetivesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/objetivesFragment"
+        android:name="com.example.mdietlux.ui.register.objetives.ObjetivesFragment"
+        android:label="fragment_objetives"
+        tools:layout="@layout/fragment_objetives" >
+        <action
+            android:id="@+id/action_objetivesFragment_to_measureFragment"
+            app:destination="@id/measureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/measureFragment"
+        android:name="com.example.mdietlux.ui.register.measure.MeasureFragment"
+        android:label="fragment_measure"
+        tools:layout="@layout/fragment_measure" >
+        <action
+            android:id="@+id/action_measureFragment_to_bodyFragment"
+            app:destination="@id/bodyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bodyFragment"
+        android:name="com.example.mdietlux.ui.register.body.BodyFragment"
+        android:label="fragment_body"
+        tools:layout="@layout/fragment_body" >
+        <action
+            android:id="@+id/action_bodyFragment_to_typicalDaysFragment"
+            app:destination="@id/typicalDaysFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/typicalDaysFragment"
+        android:name="com.example.mdietlux.ui.register.day.TypicalDaysFragment"
+        android:label="fragment_typical_days"
+        tools:layout="@layout/fragment_typical_days" >
+        <action
+            android:id="@+id/action_typicalDaysFragment_to_habitsFragment"
+            app:destination="@id/habitsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/habitsFragment"
+        android:name="com.example.mdietlux.ui.register.habits.HabitsFragment"
+        android:label="fragment_habits"
+        tools:layout="@layout/fragment_habits" >
+        <action
+            android:id="@+id/action_habitsFragment_to_exercicesFragment"
+            app:destination="@id/exercicesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exercicesFragment"
+        android:name="com.example.mdietlux.ui.register.exercices.ExercicesFragment"
+        android:label="fragment_exercices"
+        tools:layout="@layout/fragment_exercices" >
+        <action
+            android:id="@+id/action_exercicesFragment_to_energiesFragment"
+            app:destination="@id/energiesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/energiesFragment"
+        android:name="com.example.mdietlux.ui.register.energies.EnergiesFragment"
+        android:label="fragment_energies"
+        tools:layout="@layout/fragment_energies" >
+        <action
+            android:id="@+id/action_energiesFragment_to_sleepingFragment"
+            app:destination="@id/sleepingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sleepingFragment"
+        android:name="com.example.mdietlux.ui.register.sleeping.SleepingFragment"
+        android:label="fragment_sleeping"
+        tools:layout="@layout/fragment_sleeping" >
+        <action
+            android:id="@+id/action_sleepingFragment_to_watersFragment"
+            app:destination="@id/watersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/watersFragment"
+        android:name="com.example.mdietlux.ui.register.waters.WatersFragment"
+        android:label="fragment_waters"
+        tools:layout="@layout/fragment_waters" >
+        <action
+            android:id="@+id/action_watersFragment_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/dietEmailFragment2"
+        android:name="com.example.mdietlux.ui.diet.DietEmailFragment"
+        android:label="fragment_diet_email"
+        tools:layout="@layout/fragment_diet_email" >
+        <action
+            android:id="@+id/action_dietEmailFragment2_to_packeFragment2"
+            app:destination="@id/packeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/packeFragment2"
+        android:name="com.example.mdietlux.ui.pack.PackeFragment"
+        android:label="fragment_packe"
+        tools:layout="@layout/fragment_packe" />
+    <fragment
+        android:id="@+id/dashboardFragment2"
+        android:name="com.example.mdietlux.ui.dasboard.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment2_to_dietEmailFragment2"
+            app:destination="@id/dietEmailFragment2" />
     </fragment>
 
 </navigation>

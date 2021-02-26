@@ -8,17 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.example.mdietlux.R
-import com.github.appintro.SlidePolicy
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.textfield.TextInputEditText
 import com.shawnlin.numberpicker.NumberPicker
-import kotlinx.coroutines.launch
 
-class MeasureFragment : Fragment() , SlidePolicy{
+class MeasureFragment : Fragment() {
 
     lateinit var pref: SharedPreferences
 
@@ -40,9 +39,11 @@ class MeasureFragment : Fragment() , SlidePolicy{
 
     lateinit var toggleButton: MaterialButtonToggleGroup
 
+    lateinit var to_continue: MaterialButton
+
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_measure, container, false)
@@ -85,10 +86,26 @@ class MeasureFragment : Fragment() , SlidePolicy{
             // Respond to button selection
             if (checkedId == R.id.button1) {
                 isMetric = true
-                Toast.makeText(activity?.applicationContext, isMetric.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(activity?.applicationContext, isMetric.toString(), Toast.LENGTH_LONG)
+                    .show()
             } else {
                 isMetric = false
-                Toast.makeText(activity?.applicationContext, isMetric.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(activity?.applicationContext, isMetric.toString(), Toast.LENGTH_LONG)
+                    .show()
+            }
+        }
+
+        to_continue = view.findViewById(R.id.to_continue)
+
+        to_continue.setOnClickListener {
+            if (isCompleted()) {
+                view.findNavController().navigate(R.id.action_measureFragment_to_bodyFragment)
+            } else {
+                Toast.makeText(
+                    activity?.applicationContext,
+                    "Requiere llenar todos los datos",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }
@@ -224,15 +241,10 @@ class MeasureFragment : Fragment() , SlidePolicy{
         }
     }
 
-    private fun isCompleted():Boolean{
-        isDataComplete = ageData.isNotEmpty() && heigthDara.isNotEmpty() && weigthDara.isNotEmpty() && weightOBJ.isNotEmpty()
+    private fun isCompleted(): Boolean {
+        isDataComplete =
+            ageData.isNotEmpty() && heigthDara.isNotEmpty() && weigthDara.isNotEmpty() && weightOBJ.isNotEmpty()
         return isDataComplete
     }
 
-    override val isPolicyRespected: Boolean
-        get() = isCompleted()
-
-    override fun onUserIllegallyRequestedNextPage() {
-        Toast.makeText(activity?.applicationContext, "Requiere llenar todos los datos", Toast.LENGTH_LONG).show()
-    }
 }

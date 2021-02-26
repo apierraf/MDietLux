@@ -5,24 +5,24 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mdietlux.R
 import com.example.mdietlux.adapter.CountriesAdapter
 import com.example.mdietlux.data.network.WebAccess
 import com.example.mdietlux.utils.ItemClick
-import com.github.appintro.SlidePolicy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class CountriesFragment : Fragment(), SlidePolicy {
+class CountriesFragment : Fragment() {
 
     lateinit var recyclerCountries: RecyclerView
     lateinit var progressDialog: AlertDialog
@@ -71,6 +71,8 @@ class CountriesFragment : Fragment(), SlidePolicy {
                                     editor?.putString("country", country)
                                     editor?.apply()
 
+                                    view!!.findNavController().navigate(R.id.action_countriesFragment_to_objetivesFragment)
+
                                     val test = pref.getString("country","")
                                     //Toast.makeText(activity!!.applicationContext,test,Toast.LENGTH_LONG).show()
                                 }
@@ -83,12 +85,5 @@ class CountriesFragment : Fragment(), SlidePolicy {
                 false
             )
         }
-    }
-
-    override val isPolicyRespected: Boolean
-        get() = country.isNotEmpty()
-
-    override fun onUserIllegallyRequestedNextPage() {
-        Toast.makeText(activity?.applicationContext, "Seleccione un país", Toast.LENGTH_LONG).show()
     }
 }

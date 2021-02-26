@@ -16,7 +16,6 @@ class AdapterExercices (
     val context: Context, val dataList: List<DataExercices>, val itemClick: ItemClick
 ) : RecyclerView.Adapter<AdapterExercices.ViewHolder>() {
 
-    private var selectedItem = 0
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
@@ -35,17 +34,9 @@ class AdapterExercices (
         val data = dataList[position]
         holder.textExercices.text = data.name
 
-        if (selectedItem == position) {
-            holder.cardExercices.setCardBackgroundColor(context.resources.getColor(R.color.green_500))
-        } else {
-            holder.cardExercices.setCardBackgroundColor(context.resources.getColor(R.color.five))
-        }
 
         holder.itemView.setOnClickListener {
             itemClick.clicked(position)
-            val previousItem = selectedItem
-            selectedItem = position
-            notifyItemChanged(previousItem)
             notifyItemChanged(position)
         }
 

@@ -18,7 +18,6 @@ class ObjetiveAdapter(
     val itemClick: ItemClick
 ) : RecyclerView.Adapter<ObjetiveAdapter.ViewHolder>(){
 
-    private var selectedItem = 0
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
@@ -37,17 +36,9 @@ class ObjetiveAdapter(
         val data = dataList[position]
         holder.textObjetive.text = data.name
 
-        if (selectedItem == position) {
-            holder.cardOjetive.setCardBackgroundColor(context.resources.getColor(R.color.green_500))
-        }else{
-            holder.cardOjetive.setCardBackgroundColor(context.resources.getColor(R.color.five))
-        }
 
         holder.itemView.setOnClickListener {
             itemClick.clicked(position)
-            val previousItem = selectedItem
-            selectedItem = position
-            notifyItemChanged(previousItem)
             notifyItemChanged(position)
         }
 

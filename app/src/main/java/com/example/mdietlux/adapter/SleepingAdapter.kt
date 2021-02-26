@@ -15,7 +15,6 @@ class SleepingAdapter(
     val context: Context, val dataList: List<DataSleeping>, val itemClick: ItemClick
 ) : RecyclerView.Adapter<SleepingAdapter.ViewHolder>() {
 
-    private var selectedItem = 0
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
@@ -34,17 +33,9 @@ class SleepingAdapter(
         val data = dataList[position]
         holder.textSleep.text = data.name
 
-        if (selectedItem == position) {
-            holder.cardSleep.setCardBackgroundColor(context.resources.getColor(R.color.green_500))
-        } else {
-            holder.cardSleep.setCardBackgroundColor(context.resources.getColor(R.color.five))
-        }
 
         holder.itemView.setOnClickListener {
             itemClick.clicked(position)
-            val previousItem = selectedItem
-            selectedItem = position
-            notifyItemChanged(previousItem)
             notifyItemChanged(position)
         }
 

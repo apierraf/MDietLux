@@ -82,7 +82,7 @@ class DashboardFragment : Fragment() {
 
         fab = view.findViewById(R.id.fbDiet)
         fab.setOnClickListener {
-            view.findNavController().navigate(R.id.action_dashboardFragment_to_dietEmailFragment)
+            view.findNavController().navigate(R.id.action_dashboardFragment2_to_dietEmailFragment2)
         }
         scrollView = view.findViewById(R.id.scrollView2)
 

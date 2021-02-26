@@ -15,7 +15,6 @@ class WaterAdapter (
     val context: Context, val dataList: List<DataWaters>, val itemClick: ItemClick
 ) : RecyclerView.Adapter<WaterAdapter.ViewHolder>() {
 
-    private var selectedItem = 0
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
@@ -34,17 +33,9 @@ class WaterAdapter (
         val data = dataList[position]
         holder.textWater.text = data.name
 
-        if (selectedItem == position) {
-            holder.cardWater.setCardBackgroundColor(context.resources.getColor(R.color.green_500))
-        } else {
-            holder.cardWater.setCardBackgroundColor(context.resources.getColor(R.color.five))
-        }
 
         holder.itemView.setOnClickListener {
             itemClick.clicked(position)
-            val previousItem = selectedItem
-            selectedItem = position
-            notifyItemChanged(previousItem)
             notifyItemChanged(position)
         }
 

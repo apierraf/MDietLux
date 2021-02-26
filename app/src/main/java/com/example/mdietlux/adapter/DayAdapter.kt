@@ -15,8 +15,6 @@ class DayAdapter(
     val context: Context, val dataList: List<DataDays>, val itemClick: ItemClick
 ) : RecyclerView.Adapter<DayAdapter.ViewHolder>() {
 
-    private var selectedItem = 0
-
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
         val cardDay: CardView = item.findViewById(R.id.cardDay)
@@ -34,17 +32,9 @@ class DayAdapter(
         val data = dataList[position]
         holder.textDay.text = data.name
 
-        if (selectedItem == position) {
-            holder.cardDay.setCardBackgroundColor(context.resources.getColor(R.color.green_500))
-        } else {
-            holder.cardDay.setCardBackgroundColor(context.resources.getColor(R.color.five))
-        }
 
         holder.itemView.setOnClickListener {
             itemClick.clicked(position)
-            val previousItem = selectedItem
-            selectedItem = position
-            notifyItemChanged(previousItem)
             notifyItemChanged(position)
         }
 

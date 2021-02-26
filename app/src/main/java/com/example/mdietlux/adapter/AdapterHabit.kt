@@ -15,7 +15,6 @@ class AdapterHabit(
     val context: Context, val dataList: List<DataHabit>, val itemClick: ItemClick
 ) : RecyclerView.Adapter<AdapterHabit.ViewHolder>() {
 
-    private var selectedItem = 0
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
@@ -34,17 +33,8 @@ class AdapterHabit(
         val data = dataList[position]
         holder.textHabit.text = data.name
 
-        if (selectedItem == position) {
-            holder.cardHabit.setCardBackgroundColor(context.resources.getColor(R.color.green_500))
-        } else {
-            holder.cardHabit.setCardBackgroundColor(context.resources.getColor(R.color.five))
-        }
-
         holder.itemView.setOnClickListener {
             itemClick.clicked(position)
-            val previousItem = selectedItem
-            selectedItem = position
-            notifyItemChanged(previousItem)
             notifyItemChanged(position)
         }
 

@@ -5,24 +5,22 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mdietlux.R
-import com.example.mdietlux.adapter.AdapterHabit
 import com.example.mdietlux.adapter.SleepingAdapter
 import com.example.mdietlux.data.network.WebAccess
 import com.example.mdietlux.utils.ItemClick
-import com.github.appintro.SlidePolicy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class SleepingFragment : Fragment(), SlidePolicy {
+class SleepingFragment : Fragment() {
 
     lateinit var recycleSleep: RecyclerView
     lateinit var progressDialog: AlertDialog
@@ -74,15 +72,9 @@ class SleepingFragment : Fragment(), SlidePolicy {
 
                     val test = pref.getString("sleeping","")
                    // Toast.makeText(activity!!.applicationContext,test,Toast.LENGTH_LONG).show()
+                    view!!.findNavController().navigate(R.id.action_sleepingFragment_to_watersFragment)
                 }
             })
         }
-    }
-
-    override val isPolicyRespected: Boolean
-        get() = sleeping.isNotEmpty()
-
-    override fun onUserIllegallyRequestedNextPage() {
-        Toast.makeText(activity?.applicationContext, "Seleccione las horas de sueño", Toast.LENGTH_LONG).show()
     }
 }

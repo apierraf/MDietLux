@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mdietlux.R
@@ -17,13 +17,12 @@ import com.example.mdietlux.adapter.BodyAdapter
 import com.example.mdietlux.data.model.body.DataBody
 import com.example.mdietlux.data.network.WebAccess
 import com.example.mdietlux.utils.ItemClick
-import com.github.appintro.SlidePolicy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
-class BodyFragment : Fragment(), SlidePolicy {
+class BodyFragment : Fragment() {
 
     lateinit var recyclerBody: RecyclerView
     lateinit var progressDialog: AlertDialog
@@ -80,6 +79,8 @@ class BodyFragment : Fragment(), SlidePolicy {
                                     val test = pref.getString("body_types","")
                                     //Toast.makeText(activity!!.applicationContext,test,Toast.LENGTH_LONG).show()
 
+                                    view!!.findNavController().navigate(R.id.action_bodyFragment_to_typicalDaysFragment)
+
                                 }
                             })
                         }
@@ -87,12 +88,5 @@ class BodyFragment : Fragment(), SlidePolicy {
                 }
             }
         }
-    }
-
-    override val isPolicyRespected: Boolean
-        get() = bodyTypes.isNotEmpty()
-
-    override fun onUserIllegallyRequestedNextPage() {
-        Toast.makeText(activity?.applicationContext, "Seleccione un tipo de cuerpo", Toast.LENGTH_LONG).show()
     }
 }
