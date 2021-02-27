@@ -12,6 +12,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,15 +27,15 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp">
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:elevation="3dp"
-                    app:cardBackgroundColor="@color/five"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="0dp"
                     app:cardUseCompatPadding="false">
@@ -59,7 +60,6 @@
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/source_sans_pro"
                                 android:text="@string/height_text"
-                                android:textColor="@color/white"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -69,7 +69,7 @@
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/source_sans_pro"
                                 android:text="-"
-                                android:textColor="@color/white" />
+                                />
                         </LinearLayout>
 
                         <LinearLayout
@@ -84,7 +84,6 @@
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/source_sans_pro"
                                 android:text="@string/age_text"
-                                android:textColor="@color/white"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -93,8 +92,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/source_sans_pro"
-                                android:text="-"
-                                android:textColor="@color/white" />
+                                android:text="-" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -109,7 +107,6 @@
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/source_sans_pro"
                                 android:text="@string/weight_text"
-                                android:textColor="@color/white"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -118,8 +115,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/source_sans_pro"
-                                android:text="-"
-                                android:textColor="@color/white" />
+                                android:text="-" />
 
                         </LinearLayout>
 
@@ -140,149 +136,202 @@
 
             </RelativeLayout>
 
-            <com.google.android.material.card.MaterialCardView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="24dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="3dp">
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp"
+                android:weightSum="2">
 
-                <LinearLayout
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/five"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="15dp"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:text="@string/age_metabolism"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="10dp"
-                        android:background="@android:color/white" />
-
-                    <TextView
-                        android:id="@+id/ageMetabolism"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="-"
-                        android:textColor="@android:color/white"
-                        android:textSize="30sp" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="24dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="3dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/five"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="15dp"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:text="@string/first_week"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="10dp"
-                        android:background="@android:color/white" />
-
-                    <TextView
-                        android:id="@+id/firstWeek"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="-"
-                        android:textColor="@android:color/white"
-                        android:textSize="30sp" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="24dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="3dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/five"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:text="@string/efective_text"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="10dp"
-                        android:background="@android:color/white" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:layout_height="150dp"
+                        android:background="@drawable/ic_gradient_calories"
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/personPercent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:text="@string/age_metabolism"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_margin="10dp"
+                            android:background="@android:color/white" />
+
+                        <TextView
+                            android:id="@+id/ageMetabolism"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/source_sans_pro"
                             android:gravity="center"
+                            android:padding="10dp"
+                            android:textColor="@color/white"
                             android:text="-"
-                            android:textColor="@android:color/white"
                             android:textSize="30sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:text="@string/first_week"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_margin="10dp"
+                            android:background="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/firstWeek"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="-"
+                            android:textSize="30sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="5dp"
+                android:weightSum="2">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginHorizontal="2dp"
+                    app:cardCornerRadius="5dp"
+                    android:layout_weight="1"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:text="@string/efective_text"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_margin="10dp"
+                            android:background="@android:color/black" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/personPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/source_sans_pro"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textSize="30sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/source_sans_pro"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:text="@string/percent_explain" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/source_sans_pro"
+                            android:text="@string/calories_text"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_margin="10dp"
+                            android:background="@android:color/black" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -290,76 +339,31 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/source_sans_pro"
                             android:gravity="center"
-                            android:padding="5dp"
-                            android:text="@string/percent_explain"
-                            android:textColor="@android:color/white" />
+                            android:padding="10dp"
+                            android:text="-"
+                            android:textSize="30sp" />
 
                     </LinearLayout>
 
-                </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-            </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="24dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="3dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/five"
-                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="15dp"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:text="@string/calories_text"
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="10dp"
-                        android:background="@android:color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="-"
-                        android:textColor="@android:color/white"
-                        android:textSize="30sp" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_height="150dp"
+                android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="24dp"
                 app:cardCornerRadius="4dp"
                 app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/five"
                     android:orientation="vertical">
 
                     <TextView
@@ -369,7 +373,6 @@
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/source_sans_pro"
                         android:text="@string/whater_text"
-                        android:textColor="@android:color/white"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -377,7 +380,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_margin="10dp"
-                        android:background="@android:color/white" />
+                        android:background="@android:color/black" />
 
                     <TextView
                         android:id="@+id/wather"
@@ -388,7 +391,6 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="-"
-                        android:textColor="@android:color/white"
                         android:textSize="30sp" />
 
                 </LinearLayout>
@@ -398,16 +400,15 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="24dp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/five"
+                    android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -459,10 +460,9 @@
                             android:id="@+id/imcNotification"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily=""
+                            android:fontFamily="@font/source_sans_pro"
                             android:gravity="center"
-                            android:text="-"
-                            android:textColor="@android:color/darker_gray" />
+                            android:text="-" />
 
                     </LinearLayout>
 
